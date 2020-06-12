@@ -56,7 +56,7 @@ def main():
     sequence = list()
     while True:
         sequence = next(sequence)
-        print sequence
+        print(sequence)
 
 if __name__ == "__main__":
     main()
