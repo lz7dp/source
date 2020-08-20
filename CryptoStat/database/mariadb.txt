@@ -3,7 +3,7 @@ sudo mysql -u root -p
 #database/user
 
 CREATE DATABASE cryptodb;
-CREATE USER 'user1'@'localhost' IDENTIFIED BY 'bananapi';
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON cryptodb.* TO 'user1'@'localhost';
 FLUSH PRIVILEGES;
 USE cryptodb;
