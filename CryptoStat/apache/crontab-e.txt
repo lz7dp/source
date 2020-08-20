@@ -1,0 +1,5 @@
+crontab -e
+crontab -l
+
+1 * * * * /home/bananapi/crypto.sh
+31 * * * * /home/bananapi/crypto.sh

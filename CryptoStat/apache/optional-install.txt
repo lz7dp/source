@@ -1,0 +1,4 @@
+pi@raspberrypi:~ $ ls -lh /var/www/
+pi@raspberrypi:~ $ sudo chown -R pi:www-data /var/www/html/
+pi@raspberrypi:~ $ sudo chmod -R 770 /var/www/html/
+pi@raspberrypi:~ $ ls -lh /var/www/

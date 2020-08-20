@@ -1,0 +1,75 @@
+sudo mysql -u root -p
+
+#database/user
+
+CREATE DATABASE cryptodb;
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'bananapi';
+GRANT ALL PRIVILEGES ON cryptodb.* TO 'user1'@'localhost';
+FLUSH PRIVILEGES;
+USE cryptodb;
+
+#table BCN
+
+id	6
+date	date
+hour	h
+price	10
+
+------------------
+CREATE TABLE BCN(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(10,8), 
+PRIMARY KEY (price_id));  
+
+#table BTC
+
+id
+date
+hour
+price
+
+CREATE TABLE BTC(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(12,4), 
+PRIMARY KEY (price_id)); 
+
+
+CREATE TABLE TNC(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(10,8), 
+PRIMARY KEY (price_id)); 
+
+CREATE TABLE XMR(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(12,4), 
+PRIMARY KEY (price_id));
+
+CREATE TABLE STORJ(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(12,5), 
+PRIMARY KEY (price_id)); 
+
+CREATE TABLE ETH(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(12,4), 
+PRIMARY KEY (price_id)); 
+
+CREATE TABLE XRP(  
+price_id INT NOT NULL AUTO_INCREMENT,
+price_date DATE, 
+price_time TIME,
+price DOUBLE PRECISION(12,6), 
+PRIMARY KEY (price_id)); 
+ 
