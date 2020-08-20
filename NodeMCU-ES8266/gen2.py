@@ -23,7 +23,7 @@ def product_loop(password, generator):
     return False
 
 
-def bruteforce(password, max_nchar=8):
+def bruteforce(password, max_nchar):
     """Password brute-force algorithm.
 
     Parameters
@@ -87,6 +87,6 @@ def bruteforce(password, max_nchar=8):
 
 # EXAMPLE
 start = time()
-bruteforce('sunshine') # Try with '123456' or '751345' or 'test2018'
+bruteforce('123456',6)
 end = time()
 print('Total time: %.2f seconds' % (end - start))
