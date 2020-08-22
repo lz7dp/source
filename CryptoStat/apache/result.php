@@ -31,8 +31,8 @@ class TableRows extends RecursiveIteratorIterator {
 }
 
 $servername = "localhost";
-$username = "user1";
-$password = "bananapi";
+$username = "";
+$password = "";
 $dbname = "cryptodb";
 
 try {

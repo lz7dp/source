@@ -2,13 +2,13 @@
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'user1');
-define('DB_PASSWORD', 'bananapi');
+define('DB_USERNAME', '');
+define('DB_PASSWORD', '');
 define('DB_NAME', 'cryptodb');
 
 define('servername', 'localhost');
-define('username', 'user1');
-define('password', 'bananapi');
+define('username', '');
+define('password', '');
 define('dbname', 'cryptodb');
 
 
