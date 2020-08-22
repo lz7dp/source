@@ -31,8 +31,8 @@ class TableRows extends RecursiveIteratorIterator {
 }
 
 $servername = "localhost";
-$username = "database_user";
-$password = "database_password";
+$username = "user1";
+$password = "bananapi";
 $dbname = "cryptodb";
 
 try {
@@ -54,6 +54,7 @@ catch(PDOException $e) {
 }
 $conn = null;
 echo "</table>";
+
 ?>
 
 </body>

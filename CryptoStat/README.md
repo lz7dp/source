@@ -1,5 +1,5 @@
 
-<<<<<<<<<<< Crypto Coin Statistic v.0.01 from 20.08.2020 >>>>>>>>>>>>>>>>>
+<<<<<<<<<<< Crypto Coin Statistic v.0.01 / 20.08.2020 >>>>>>>>>>>>>>>>>
 
 This is my first Python3 + PHP7 + MariaDB10 project.
 
