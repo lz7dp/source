@@ -1,0 +1,6 @@
+https://github.com/topics/python-examples
+https://github.com/OmkarPathak/Data-Structures-using-Python
+https://github.com/geekcomputers/Python
+https://github.com/geekcomputers/Python/tree/master/socket-programming
+https://github.com/adaptives/python-examples/
+https://github.com/thoughtfulml/examples-in-python
