@@ -1,0 +1,8 @@
+gcc -c hello.adb
+gnatbind hello
+gnatlink hello
+
+
+- or -
+
+gnatmake hello.adb
