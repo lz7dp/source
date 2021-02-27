@@ -1,0 +1,27 @@
+from guizero import App, Text, TextBox, Combo, CheckBox, PushButton
+
+def do_nothing():
+    print("A picture button was pressed")
+    next8message = Text(app, text=" ")
+    next9message = Text(app, text="Your ICE CREAM cost: $0.00")
+
+app = App(title="Custom Ice cream")
+firstmessage = Text(app, text="-=< CUSTOM ICE CREAM CALCULATOR >=-")
+next2message = Text(app, text=" ")
+secondmessage = Text(app, text="Please, fill options and check boxes bellow:")
+input_box = TextBox(app, text="Type here your ice cream name/nickname", width=50,)
+next3message = Text(app, text=" ")
+next1message = Text(app, text="Please, choice ice cream type:")
+combo = Combo(app, options=["Chocolate", "Vanila", "Gelato", "Lemon"])
+next4message = Text(app, text=" ")
+next5message = Text(app, text="Please, choice number of scoops:")
+combo = Combo(app, options=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
+next6message = Text(app, text=" ")
+checkbox = CheckBox(app, text="dairy free")
+next7message = Text(app, text=" ")
+checkbox2 = CheckBox(app, text="nuts           ")
+checkbox3 = CheckBox(app, text="chocolate sauce")
+checkbox4 = CheckBox(app, text="wafer          ")
+next10message = Text(app, text=" ")
+button = PushButton(app, text="Calculate", command=do_nothing)
+app.display()
