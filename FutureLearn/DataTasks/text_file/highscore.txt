@@ -1,0 +1,10 @@
+Ivan 5
+Dragan 10
+Petkan 20
+Trayan 2
+Stoyan 1
+Vanyo 0
+Tenyo 30
+Ganyo 2
+Stanyo 11
+Tanyo 7
