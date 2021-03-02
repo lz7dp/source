@@ -1,4 +1,5 @@
 import json
+import os
 
 def showInstructions():
     # Print a main menu and the commands
@@ -46,6 +47,15 @@ except FileNotFoundError:
     currentRoom = "Hall"
     inventory = []
 
+if health < 0 or health > 5:
+    os.remove("gamedata.json")
+    print("You have cheated; game data delete!")
+
+    name = None
+    health = 5
+    currentRoom = "Hall"
+    inventory = []
+	
 # A dictionary linking a room to other room positions
 rooms = {
           "Hall" : { "south" : "Kitchen",
