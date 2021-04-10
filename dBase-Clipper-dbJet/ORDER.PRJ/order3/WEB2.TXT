@@ -1,0 +1,217 @@
+-----------------------------------------------------------------------------
+From:            webmail@eolas.ucc.ie
+Reply to:        webmail-control@eolas.ucc.ie (WebMail Controller)
+Date Posted:     Sunday, February 22, 1998 12:13:25 AM
+Date Delivered:  Sunday, February 22, 1998 12:18:43 AM
+
+Subject:         
+-----------------------------------------------------------------------------
+
+RFC-822-Headers:
+Comments: This is an automated reply to your request to WebMail.          Do NOT use REPLY to submit further requests.
+Apparently-To: /G=DMD-COMPUTER/S=COM/O=DPAVLOV/@bulmail.sprint.com
+
+
+I am sorry for the long delay. This was due to serious network
+problems. The WebMail service is now coming back online but the
+queue will take some time to clear (3,400 messages). 
+
+WARNING: the obsolete address webmail@curia.ucc.ie will die in
+a few weeks time: THE CORRECT ADDRESS IS WEBMAIL@WWW.UCC.IE
+
+-----------------------------------------------------------------------
+
+The Internet TOURBUS is a free guided tour of cyberspace, delivered
+twice weekly by e-mail. To sign up, send the command
+   SUBSCRIBE TOURBUS your name 
+(in the body of your message) to "listserv@listserv.aol.com".  You can
+also visit the TOURBUS site at http://www.worldvillage.com/tourbus.htm
+
+In reply to your request for
+http://www.pari.bg/index.html
+-------------------------------------------------------------
+<HTML>
+<HEAD>
+<TITLE>ITK PARI: Home Page</TITLE>
+</HEAD>
+<BASE HREF="http://www.pari.bg/">
+<BODY BGCOLOR="FFAA8C" BACKGROUND="/images/ft.gif">
+<CENTER>
+<TABLE BORDER=2 WIDTH=480>
+<TR><TD ALIGN=CENTER><A HREF="/doc/about.htm"><IMG WIDTH=450 HEIGHT=112 SRC="/images/title.jpg" BORDER=0></A></TD></TR>
+<TR><TD ALIGN=CENTER><IMG WIDTH=450 HEIGHT=56 SRC="/images/itk.gif"></TD></TR>
+<TR><TD ALIGN=CENTER><B>PARI DAILY IS THE ONLY BULGARIAN FINANCIAL & BUSINESS NEWS DAILY AND NOW IT IS PUBLISHED ON THE WORLD WIDE WEB</B></TR>
+</TABLE>
+</CENTER>
+<CENTER>
+<TABLE BORDER=2 WIDTH=480>
+<TR><TD><IMG WIDTH=325 HEIGHT=20 SRC="/images/time1.gif" ALT="CURRENT LOCAL TIME:"><IMG SRC="/images/stopper.gif" WIDTH=50 HEIGHT=20><IMG SRC="/time/00.gif" WIDTH=40 HEIGHT=20><IMG SRC="/time/d.gif" WIDTH=13 HEIGHT=20><IMG SRC="/time/18.gif" WIDTH=40 HEIGHT=20></TD></TR>
+</TABLE>
+</CENTER>
+<CENTER>
+<TABLE BORDER=2 WIDTH=480>
+<TR><TD ALIGN=CENTER><A HREF="/doc/ENG/engindex.htm"><IMG WIDTH=146 HEIGHT=70 SRC="/images/start-p.jpg" ALT="PARI-DAILY-ENGLISH EDITION"></A></TD><TD ALIGN=CENTER><A HREF="/doc/BER/berindex.htm"><IMG WIDTH=146 HEIGHT=70 SRC="/images/start-b.jpg" ALT="BULGARIAN ECONOMIC REVIEW"></A></TD><TD ALIGN=CENTER><A HREF="/doc/BUL/bulindex.htm"><IMG WIDTH=146 HEIGHT=70 SRC="/images/start-pb.jpg" ALT="PARI-BULGARIAN EDITION"></A></TD></TR>
+</TABLE>
+</CENTER>
+<CENTER>
+<TABLE BORDER=2 WIDTH=480>
+<TR><TD WIDTH=130 ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://magellan.mckinley.com/"><IMG BOREDER=0 WIDTH=112 HEIGHT=44 SRC="/awards/3star44p.gif"></A></TD>
+<TD WIDTH=90 ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://point.lycos.com/reviews/News_3688.html"><IMG WIDTH=71 HEIGHT=71 BORDER=0 SRC="/awards/5percmdt.gif"></A></TD>
+<TD WIDTH=150 ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.abcompass.com/"><IMG WIDTH=140 HEIGHT=55 BORDER=0 SRC="/awards/abc.jpg"></A></TD>
+<TD WIDTH=80 ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.netguide.com/"><IMG WIDTH=70 HEIGHT=70 BORDER=0 SRC="/awards/goldsite.gif"></A></TD></TR></TABLE>
+</CENTER>
+<CENTER>
+<TABLE BORDER=2 WIDTH=480>
+<TR><TD ALIGN=CENTER><A HREF="/doc/misc.htm"><IMG WIDTH=463 HEIGHT=41 SRC="/images/misc.gif" ALT="OTHER IMPORTANT FEATURES"></A></TD></TR>
+</TABLE>
+</CENTER>
+<CENTER>
+<HR WIDTH=30%>
+<SMALL>The newspaper uses its own sources of information and the express
+bulletins of <BR>Bulgarian Telegraph Agency, REUTERS, Associated Press, AP-Dow Jones and Business-TASS.
+</SMALL>
+<HR WIDTH=30%>
+
+<P>
+<IMG WIDTH=642 HEIGHT=22 SRC="/images/graylong.gif">
+<TABLE BORDER=0 WIDTH=480 CELLPADDING=4>
+<TR><TD><B><I>
+ITK PARI
+<BR>47A Tsarigradsko Chaussee Blvd
+<BR>1504 Sofia
+<BR>Bulgaria
+<BR>Phone: +359 2 943 31 47
+<BR>Fax: +359 2 943 31 88
+<BR>E-mail: <A HREF="mailto:office@pari.bg">office@pari.bg
+</I></B></A>
+</TD></TR>
+</TABLE>
+<IMG WIDTH=642 HEIGHT=22 SRC="/images/graylong.gif">
+<ADDRESS>
+<P>
+<B>
+If you have notes and suggestions, please
+<BR> send e-mail to our webmaster 
+<A HREF="/doc/kiril.htm">Kiril Antonov</A> at:
+<A HREF= "mailto:kiril@pari.bg">kiril@pari.bg
+</A></B>
+</ADDRESS>
+<P>
+<HR WIDTH=30%>
+<TABLE BORDER=2>
+<TR>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://magellan.mckinley.com/"><IMG BOREDER=0 WIDTH=112 HEIGHT=44 SRC="/awards/3star44p.gif"></A></TD>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://point.lycos.com/reviews/News_3688.html"><IMG WIDTH=71 HEIGHT=71 BORDER=0 SRC="/awards/5percmdt.gif"></A></TD>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.abcompass.com/"><IMG WIDTH=140 HEIGHT=55 BORDER=0 SRC="/awards/abc.jpg"></A></TD>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.netguide.com/"><IMG WIDTH=70 HEIGHT=70 BORDER=0 SRC="/awards/goldsite.gif"></A></TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.bol.bg/isoc/awardlst.htm"><IMG WIDTH=65 HEIGHT=119 BORDER=0 SRC="/awards/award2.gif"></A></TD>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.financewise.com/"><IMG WIDTH=108 HEIGHT=62 BORDER=0 SRC="/awards/fwindby3.gif"></A></TD>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://www.looksmart.com/"><IMG WIDTH=128 HEIGHT=32 BORDER=0 SRC="/awards/ecfin32.gif"></A></TD>
+<TD ALIGN=CENTER BGCOLOR="FFFFFF"><A HREF="http://commercecan.ic.gc.ca"><IMG WIDTH=78 HEIGHT=48 BORDER=0 SRC="/awards/map_bare.gif"></A></TD>
+</TR>
+</TABLE>
+<P>
+<HR WIDTH=30%>
+<A HREF="http://www.apache.org/"><IMG SRC="/images/apache_p.gif" BORDER=0></A>
+<HR WIDTH=30%>
+<P>
+<SMALL><B> COPYRIGHT </B><BR>
+<B>NEWS &amp INFORMATION</B> - Copyright &copy; 1995 - 1996 by 
+<A HREF="http://www.pari.bg/doc/about.htm"><B>PARI DAILY</B></A>
+<BR>All rights reserved. All materials may not be published, broadcast, rewritten, or redistributed without written permission from PARI DAILY
+<BR><BR><B> HTML PAGE DESIGN, GRAPHICS DESIGN</B> and 
+<B>SOFTWARE SCRIPT PROGRAMMING</B> - <BR>Copyright &copy; 1995 - 1996 by 
+<A HREF="http://www.pari.bg/doc/kiril.htm"><B>Kiril Antonov.</B></A>
+<BR>All rights reserved.
+<P>
+</SMALL>
+</CENTER>
+</BODY>
+</HTML>
+
+-------------------------------------------------------------
+Formatted version:
+------------------
+
+   [LINK] [IMAGE] _PARI DAILY IS THE ONLY BULGARIAN FINANCIAL & BUSINESS
+   NEWS DAILY AND NOW IT IS PUBLISHED ON THE WORLD WIDE WEB_ CURRENT
+   LOCAL TIME: [INLINE] [INLINE] [INLINE] [INLINE] PARI-DAILY-ENGLISH
+   EDITION BULGARIAN ECONOMIC REVIEW PARI-BULGARIAN EDITION [LINK] [LINK]
+   [LINK] [LINK] OTHER IMPORTANT FEATURES 
+     _________________________________________________________________
+   
+   The newspaper uses its own sources of information and the express
+   bulletins of
+   Bulgarian Telegraph Agency, REUTERS, Associated Press, AP-Dow Jones
+   and Business-TASS.
+     _________________________________________________________________
+   
+   
+   
+   [IMAGE] _ITK PARI
+   47A Tsarigradsko Chaussee Blvd
+   1504 Sofia
+   Bulgaria
+   Phone: +359 2 943 31 47
+   Fax: +359 2 943 31 88
+   E-mail: office@pari.bg _[INLINE]
+   
+   
+    
+    _If you have notes and suggestions, please
+    send e-mail to our webmaster Kiril Antonov at: kiril@pari.bg _
+    
+   
+   
+   
+     _________________________________________________________________
+   
+   [LINK] [LINK] [LINK] [LINK] [LINK] [LINK] [LINK] [LINK] 
+   
+   
+     _________________________________________________________________
+   
+   [LINK] 
+     _________________________________________________________________
+   
+   
+   
+   _COPYRIGHT _
+   _NEWS &INFORMATION_ - Copyright &copy; 1995 - 1996 by PARI DAILY
+   All rights reserved. All materials may not be published, broadcast,
+   rewritten, or redistributed without written permission from PARI DAILY
+   
+   
+   _HTML PAGE DESIGN, GRAPHICS DESIGN_ and _SOFTWARE SCRIPT PROGRAMMING_
+   -
+   Copyright &copy; 1995 - 1996 by Kiril Antonov.
+   All rights reserved.
+ 
+Top ten URLs requested
+http://www.omroep.nl/cgi-bin/tt/nos/page/t/o/m/x/n/552 (116)
+http://www.indopubs.com/archives/0009.html (94)
+http://www.pslgroup.com/dg/3bc52.htm (73)
+http://www.geocities.com/tokyo/ginza/8149/family01.txt (60)
+http://www.xs4all.nl/~lvdm/boot/004t21.htm (55)
+http://www.omroep.nl/cgi-bin/tt/nos/page/t/o/m/x/n/101 (50)
+http://scout.cs.wisc.edu/scout/report/archive/scout-970207.html (50)
+http://www.tijd.be/invest/beurs/index.htm (48)
+http://www.yshen.com/wwwboard/messagesa/1008.html (46)
+http://www.titanicmovie.com/present/bts_index.html (45)
+Total requests this month: 7596
+
+Top 10 or so URLs requested from your
+domain .com (USA Commercial companies)
+
+226 http://www.cpcw.com
+23 http://www.isdmag.com/NewsReleases/TodaysNews.html
+23 http://www.microsoft.com
+22 http://www.yahoo.com
+20 http://users.aol.com/SHarrisNS/test.htm
+18 http://quote.yahoo.com/q?s=^dji+mo+xon+gm+ip+mmm+coms+aol+lnct+invx+cacc+actc+klac+pixr+srsl+imsi+intc+rnwk+dell+slot+iom+amzn+egrp+tdfx&d=t&o=t
+16 http://techweb.cmp.com/eet/823/hr.html
+14 http://www.cnn.com
+14 http://www.indopubs.com/archives/
+14 http://www.minghua.com/chinafax/main.html

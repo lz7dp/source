@@ -1,0 +1,265 @@
+<!doctype html public "+//Silmaril//DTD HTML Pro v0r11 19970101//EN">
+<html>
+  <head>
+    <title>WebMail Server</title>
+    <link href="mailto:pflynn@curia.ucc.ie" rev="Made">
+    <link href="http://curia.ucc.ie/~pflynn/" rel="Author">
+    <link href="http://www.ucc.ie/webmail/" rel="Owner">
+    <link href="http://www.ucc.ie/webstart.html" rel="Glossary">
+    <base href="http://www.ucc.ie/webmail/">
+    <meta http-equiv="Keywords" content="world wide web www mail email
+      server access html html2 html3">
+  </head>
+  <body>
+    <bodytext>
+      <table>
+        <tr>
+          <td>
+              <p><img src="webmail.gif" alt=""></p>
+            </td>
+          <td>
+              <h1>The WebMail Server</h1>
+              <p>Regular users should read about the <a
+              href="#cmds">changes to the way in which commands are
+              parsed</a>.</p><p>This software was last updated on
+              August 31, 1997.</p>
+            </td>
+        </tr>
+      </table>
+      <hr>
+      <h2>Introduction</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td><p><cite>WebMail</cite> is a mail-based server to
+                allow networkers who have only email access to
+                retrieve documents from the <a
+                href="http://www.ucc.ie/webstart.html">World-Wide Web</a>.
+                Please do <strong>not</strong> use this service if you
+                already have online access to the Web: keep the
+                bandwidth clear for those who do not yet have full
+                access.</p><p>This server was started at the
+                suggestion of some of the attendees at the Developing
+                Countries' Workshop at Stanford before INET'93. I am
+                grateful to the many students there who contributed to
+                its genesis.</p><note><h3>This service should not be
+                confused with the project of the OSF to develop
+                a tighter binding between Web browsers and email
+                systems, which they have unfortunately also called
+                <cite>WebMail</cite>.</h3></note></td>
+            <td><p><a href="http://www.eff.org/blueribbon.html"><img
+                src="rib_wh_brdr.gif" alt="Free Speech Online - the
+                Blue Ribbon Campaign"></img></a></p></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>How to use this server</h2>
+      <p>This is an email-based server. It allows the retrieval by
+      electronic mail of text files from the World-Wide Web. It does not
+      offer any other facilities, and in particular it is <em>not</em>
+      a gateway to Usenet News, and cannot be used to retrieve
+      graphics or other binary files (with some exceptions: see below).</p>
+      <h3>To request a document</h3>
+      <p>Send a one-line email message to this address:</p>
+      <blockquote>
+        <bodytext>
+          <pre>webmail@www.ucc.ie</pre>
+        </bodytext>
+      </blockquote>
+      <p>Put the command in the text body (nowhere else):</p>
+      <blockquote>
+        <bodytext>
+          <pre>SEND <i>url</i></pre>
+        </bodytext>
+      </blockquote>
+      <p>where <i>url</i> is the Uniform Resource Locator of the
+      document you wish to retrieve (see below for details of
+      URLs). For example, to retrieve this document, send the line</p>
+      <blockquote>
+        <bodytext>
+          <pre>SEND http://www.ucc.ie/webmail/webmail.html</pre>
+        </bodytext>
+      </blockquote>
+      <p><strong>Do <em>NOT</em> put the command in the Subject
+      line.<br>Do <em>NOT</em> use MIME, HTML, Word, or other
+      formatting.</strong></p>
+      <h3>Other commands</h3>
+      <p>The <tt>SEND</tt> command retrieves a formatted version of
+      the file. To retrieve the HTML source text from which is was
+      generated, use the <samp>GET</samp> or <samp>GO</samp> commands
+      in the same way. See below for details of the differences.</p>
+      <h3>URLs</h3>
+      <p>A Uniform Resource Locator is the <q>address</q> of a file in
+      the Web. The structure of a URL is:</p>
+      <table frame="border" border>
+        <tbody>
+          <tr>
+            <td><p><tt><b>http:</b></tt></td>
+            <td><p><tt><b>//</b></tt></td>
+            <td><p><tt><b>www.thomson.com<i>:80</i>/</b></tt></td>
+            <td><p><tt><b>catalog/</b></tt></td>
+            <td><p><tt><b>order.html</b></tt></td>
+            <td><p>optionally followed by one
+            of<br><tt><b>?<i>searchterm</i><br>#<i>location</i></b></tt></td>
+          </tr>
+          <tr>
+            <td valign="top" rowspan="2"><p>The `method' is one
+            of...<br><tt>http: <br>gopher: <br>ftp: <br>telnet:
+            <br>mailto: <br>news: </tt></p></td>
+            <td rowspan="2"></td>
+            <td valign="top"><p>There must be an Internet server
+            hostname or IP address (with optional port number), or an
+            Email address, or a Newsgroup name.</p><p><em><b>Note:</b>
+            the <samp>mailto:</samp> and <samp>news:</samp> have no
+            double slash.</em></p></td>
+            <td valign="top"><p>There may be a path (directory or
+            folder names)</p></td>
+            <td valign="top"><p>There is usually a filename and
+            filetype</p></td>
+            <td valign="top"><p>Options may follow:<br><tt>?</tt>
+            (searching) means the URL must be a script;<br>using a
+            <tt>#</tt> location implies target label exists (see <a
+            href="http://www.ucc.ie/~pflynn/books/htmlcard.html#a">
+            <samp>&lt;a&gt;</samp></a>).</p></td>
+          </tr>
+          <tr>
+            <td colspan="4"><p>Form submission uses the <code>?</code>
+                after the file(script)name, but instead of a single
+                searchword, fields are separated by
+                <code>&amp;</code>s, and are composed of the
+                fieldname, an <code>=</code> sign and the field value
+                according to MIME type <var>x-www-urlencoded</var>
+                (spaces replaced by plus signs, all non-alphanumerics
+                replaced by <code>%</code>-escaped two-byte
+                hexadecimal), <i>eg</i></p>
+              <pre>http://foo.bar.com/blort?name=Foo+O%27Bar&age=37&sex=M
+              </pre></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Please note that WebMail does not handle NEWS or FTP
+       access: the processing capacity and network bandwidth available
+       make it impossible to support these protocols. For
+       reasons which should be obvious, TELNET and MAILTO are also not
+       possible.</strong></p>
+      <h2><a name="cmds" id="cmds">Return format</a></h2>
+      <ul>
+        <li><p>The <samp>SEND</samp> command sends back a copy of the
+        file in a formatted version so that you can use it in an
+        editor or wordprocessor.</li>
+        <li><p>The <samp>GET</samp> command sends back a copy of the
+        file in its raw (HTML-encoded) state so that you can use it in
+        a local browser.</li>
+        <li><p>The old <samp>GO</samp> command does both: it send the
+        HTML file and a copy of the formatted version.</li>
+      </ul>
+      <p>In all cases, the output will be UUencoded if it contains
+       non-printing (non-ASCII) characters. These are forbidden in
+       many email systems as they stand, so they are UUencoded to
+       prevent the file being garbled unintentionally. To decode the
+       file, you need a copy of the UUDECODE program, which is in the
+       public domain and should be available from your network
+       provider or computer centre. Output containing characters which
+       are illegal in ISO 8859-1 will also be UUencoded and a warning
+       appended that these characters are not valid in HTML files.</p>
+      <h3>Viewing the results</h3>
+      <p>To view the HTML file, you need a browser program or an
+       editor, preferably an <a
+       href="http://www.sil.org/sgml/sgml.html">SGML</a>-conformant
+       editor. There are details of these at <tt><a
+       href="http://www.ucc.ie/webstart.html">
+       http://www.ucc.ie/webstart.html</a></tt></p>
+      <h2>Service level</h2>
+      <p>It has been necessary to impose some restrictions on the
+       server, as it was being abused by a few thoughtless individuals.</p>
+      <ol>
+        <li><p>To avoid users clogging the queue, the server only
+               handles one request per message, but an additional HELP
+               or DOC command will be honoured.</p></li>
+        <li><p><cite>WebMail</cite> will not send binary files,
+               executable programs, images like GIFs or JPEGs,
+               PostScript print files, audio files, movies and
+               compressed binary or archive files (zip, tar, gz, sea,
+               hqx, zoo <i>etc</i>).</p><p><strong>This restriction is
+               currently lifted on an experimental basis for
+               PostScript and Acrobat files, executable binaries
+               including overlays, and most compressed archive or
+               self-extractor files.</strong></p></li>
+        <li><p>WebMail cannot be used to access FTP archives. For
+               ftp-by-mail, use the server at
+               <tt>ftpmail@decwrl.dec.com</tt>.</p></li>
+        <li><p>There is a size limit of 1.44Mb (one high-density
+               floppy disk size) on all files retrieved: files larger
+               than this cannot be returned.</p><p><strong>This restriction
+               is being lifted for a few specific sites on an
+               experimental basis: all files from
+               <tt>www.sil.org</tt>, <tt>www.tug.org</tt>, and
+               <tt>www.jclark.com</tt>
+               can now be retrieved regardless of size. Other sites
+               may be added in the future.</strong></p></li>
+        <li><p><a id="cmds" name="cmds">Commands no longer have to
+               start in the first character position on the line</a>,
+               although this is recommended as good practice: extra
+               spacing is unnecessary but will not cause an
+               error.</p></li>
+        <li>
+          <p>A request must be a single line: the command must be on
+          the same line as the URL. If your mail editor reformats your
+          outgoing text and inserts linebreaks when the URL is very
+          long, either disable the reformatting or use another mailer.</p>
+        </li>
+        <li><p>Do not include a signature (<samp>.sig</samp> file) in
+        your message.</p></li>
+        <li><p>Do not use your mail program's <code>REPLY</code>
+        function (button or command) to send another command to
+        <cite>WebMail</cite>. In order to prevent mail bouncing from
+        bad addresses, the <code>Reply-To</code> address does not
+        point back at the server.</p></li>
+        <li><p><cite>WebMail</cite> does not (cannot and will not)
+        return linked files (the DEEP command of other web-by-mail
+        systems). To do so would be extremely dangerous, as
+        some files contain 100 or more links, and the accumulated
+        volume would be too much to handle. You must request each link
+        you want separately.</p></li>
+        <li><p>Most requests are processed within 20 minutes of
+        receipt. When the queue gets longer than 500 messages, the
+        response time may exceed 1 day. Please be patient, especially
+        when the service has just been publicised in a magazine
+        article: you were not the only person to read it!</p></li>
+      </ol>
+      <h2>Other commands</h2>
+      <p>Apart from <samp>SEND</samp>, <samp>GO</samp> and
+      <samp>GET</samp>, the command</p>
+      <pre>     HELP</pre>
+      <p>on its own will send back this file in both HTML and plain
+      text formats.</p>
+      <pre>     DOC</pre>
+      <p>on its own will send back this file in PostScript.</p>
+      <h2>Further help</h2>
+      <p>To give you an idea of usage, we keep a list of <a
+      href="mostwanted.html">the top ten most popular URLs
+      visited</a>, and a list of <a href="offenders.txt">the top ten
+      sites which seem to attract the most error-prone URLs or
+      retrievals</a>. A list of the top ten sites in your own domain
+      is also supplied.</p>
+      <p>Please refer all problems and suggestions to <tt><a
+      href="mailto:webmaster@www.ucc.ie">webmaster@www.ucc.ie</a></tt></p>
+      <h2>More information on the Web</h2>
+      <p>Read <cite>The World-Wide Web Handbook</cite> by Peter Flynn
+      (International Thomson Computer Press, ISBN
+      1-850-32205-8). Details are at <tt><a
+      href="http://www.ucc.ie/~pflynn/books/wwwbook.html">
+      http://www.ucc.ie/~pflynn/books/wwwbook.html</a></tt></p>
+      <h3>Browsers</h3>
+      <p>There are dozens of browsers, covering all popular
+      platforms. To get you started, try the references at <tt><a
+      href="http://www.ucc.ie/webstart.html">
+      http://www.ucc.ie/webstart.html</a></tt></p>
+      <address><a
+      href="http://www.w3.org/hypertext/WWW/MarkUp/html3/CoverPage.html">
+      <img src="http://www.ucc.ie/valhtml.gif"></a></address>
+    </bodytext>
+  </body>
+</html>
+
+

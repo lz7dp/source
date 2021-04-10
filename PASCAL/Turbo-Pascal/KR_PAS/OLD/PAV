@@ -1,0 +1,338 @@
+
+Program KursovPrj;
+        Uses Dos, Crt;
+
+        Type TDim = Array[1..100,1..2] of Real;
+             PDim = ^TDim;
+
+        Var  Tmp  : Real;    { Temporal Var }
+             Tmp2 : Real;    { Temporal Var }
+               St : Integer; { Br. }
+              St1 : Integer; { Br. }
+               En : Integer; { Br. }
+              tBr : Integer; { Br. }
+               Br : Integer; { Br. }
+              Log : Integer; { Logical Var }
+                I : Integer; { 1 Alg. }
+                J : Integer; { 2 Alg. }
+                K : Integer; { Max. Br. Elem. }
+               DK : Integer; { Step }
+                P : Integer; { Br. Exper. }
+                L : Integer; { Max. Leng. Elem.}
+                N : Integer; { Pos. for Key }
+                M : Integer; { Leng. for Key }
+                X : Integer; { Br. }
+                Y : Integer; { Br. }
+               XX : Integer; { Br. }
+              XX2 : Integer; { Br. }
+               Pt : Integer; { Br. }
+             rChr : String;  { Tmp. Str. }
+             aDim : Array[1..100,1..30] of Real; { Data }
+             bDim : PDim; { Key }
+             cDim : Array[1..2,1..30,1..4] of Word; { Timer_Array }
+
+
+
+Procedure SafeDispose (var P : Pointer);
+Begin { SafeDispose }
+        Dispose(P);
+        P := nil;
+End; { SafeDispose }
+
+
+
+Begin { KursovPrj }
+         Log := 0;
+           P := 0;
+           L := 30;
+           N := 10;
+           M := 2;
+           I := 1;
+           J := 4;
+           K := 100;
+          DK := 10;
+         Tmp := 0;
+        Tmp2 := 0;
+         tBr := 1;
+          Pt := 0;
+        rChr := '';
+
+
+
+        ClrScr;
+        Writeln('За░еждам ма▒ива ▒║▒ ▒л│╖айни ▒имволи !');
+        Randomize;
+        For X := 1 to K do Begin
+                For Y := 1 to L do Begin
+                        While (Tmp<0) Or (Tmp>255) do Begin
+                                Tmp := Int(Random(255));
+                        End; {endwhile}
+                        aDim[X,Y] := Tmp;
+                End; {endfor}
+
+                For Log := N to (N + M - 1) do begin
+                        bDim^[X,(Log - N + 1)] := aDim[X,Log];
+                End; {endfor}
+                ClrScr;
+                write(X);
+        End; {endfor}
+
+        For XX := 1 to 2 do Begin
+                For X := 1 to 30 do Begin
+                        For Y := 1 to 4 do Begin
+                                cDim[XX,X,Y] := 0;
+                        End; {endfor}
+                End; {endfor}
+        End; {endfor}
+
+
+
+        If (I=1) And (J=4) then Begin
+                For P := 0 to 2 do Begin
+
+                        Log := 0;
+                        While (Log<>1) do Begin
+                                Log := 1;
+                                For X := 1 to ((K - (P*DK)) - 1) do Begin
+                                        If (bDim^[X,1]=bDim^[(X+1),1]) then Begin
+                                                If (bDim^[X,2]>bDim^[X+1,2]) then Begin
+                                                        For Y := 1 to M do Begin
+                                                                Tmp := bDim^[X,Y];
+                                                                bDim^[X,Y] := bDim^[X+1,Y];
+                                                                bDim^[X+1,Y] := Tmp;
+                                                                Log := 0;
+                                                        End; {endfor}
+                                                        For Y := 1 to L do Begin
+                                                                Tmp := aDim[X,Y];
+                                                                aDim[X,Y] := aDim[X+1,Y];
+                                                                aDim[X+1,Y] := Tmp;
+                                                        End; {endfor}
+                                                End; {endif}
+                                        End; {endif}
+                                        If (bDim^[X,1]>bDim^[X+1,1]) then Begin
+                                                For Y := 1 to M do Begin
+                                                        Tmp := bDim^[X,Y];
+                                                        bDim^[X,Y] := bDim^[X+1,Y];
+                                                        bDim^[X+1,Y] := Tmp;
+                                                        Log := 0;
+                                                End; {endfor}
+                                                For Y := 1 to L do Begin
+                                                        Tmp := aDim[X,Y];
+                                                        aDim[X,Y] := aDim[X+1,Y];
+                                                        aDim[X+1,Y] := Tmp;
+                                                End; {endfor}
+                                        End; {endif}
+                                        ClrScr;
+                                        Write(X);
+                                End; {endfor}
+                        End; {endwhile}
+
+
+
+                        tBr := 1;
+                        SetTime(0,0,0,0);
+                        GetTime(cDim[1,tBr,1],cDim[1,tBr,2],cDim[1,tBr,3],cDim[1,tBr,4]);
+                        tBr := tBr + 1;
+                        Br := 2;
+                        Log := 0;
+                        While (Br<(K-(P*DK)+1)) do Begin
+                                ClrScr;
+                                Write(Br);
+                                XX := ((((K-(P*DK)+1)) DIV 100) * 20);
+                                If (Br / XX)=(Br DIV XX) then Begin
+                                        GetTime(cDim[1,tBr,1],cDim[1,tBr,2],cDim[1,tBr,3],cDim[1,tBr,4]);
+                                        tBr := tBr + 1;
+                                End; {endif}
+                                X := 1;
+                                While (X<Br) do Begin
+                                        While bDim^[Br,1]>bDim^[X,1] do Begin
+                                                X := X + 1;
+                                        End; {endwhile}
+                                        If (bDim^[Br,1]=bDim^[X,1]) then Begin
+                                                While bDim^[Br,2]>bDim^[X,2] do Begin
+                                                        X := X + 1;
+                                                End; {endwhile}
+                                                For Y := 1 to M do Begin
+                                                        Tmp := bDim^[X,Y];
+                                                        bDim^[X,Y] := bDim^[Br,Y];
+                                                        bDim^[(X+1),Y] := Tmp;
+                                                        For XX := Br downto (X + 2) do Begin
+                                                                bDim^[(XX-1),Y] := Tmp;
+                                                                Tmp := bDim^[XX,Y];
+                                                        End; {endfor}
+                                                        Log := 0;
+                                                End; {endfor}
+                                                For Y := 1 to L do Begin
+                                                        Tmp := aDim[X,Y];
+                                                        aDim[X,Y] := aDim[Br,Y];
+                                                        aDim[(X+1),Y] := Tmp;
+                                                        For XX := Br downto (X + 2) do Begin
+                                                                aDim[(XX-1),Y] := Tmp;
+                                                                Tmp := aDim[XX,Y];
+                                                        End; {endfor}
+                                                End; {endfor}
+                                        End; {endif}
+                                        X := X + 1;
+                                End; {endwhile}
+                                Br := Br + 1;
+                        End; {endwhile}
+
+
+
+                        XX := 1;
+                        Writeln('П░и ',XX,' ек▒пе░имен▓ в░емена▓а ▒а ▒ледни▓е:');
+                        For X := 1 to 10 do Begin
+                                For Y := 1 to 4 do Begin
+                                        Write(':',cDim[XX,X,Y]);
+                                End; {endfor}
+                                Writeln(' ');
+                        End; {endfor}
+                        Writeln('На▓и▒ни ENTER за п░од║лжение!');
+                        Readln(rChr);
+
+
+
+                        Log := 0;
+                        While (Log<>1) do Begin
+                                Log := 1;
+                                For X := 1 to ((K - (P*DK)) - 1) do Begin
+                                        If (bDim^[X,1]=bDim^[(X+1),1]) then Begin
+                                                If (bDim^[X,2]>bDim^[X+1,2]) then Begin
+                                                        For Y := 1 to M do Begin
+                                                                Tmp := bDim^[X,Y];
+                                                                bDim^[X,Y] := bDim^[X+1,Y];
+                                                                bDim^[X+1,Y] := Tmp;
+                                                                Log := 0;
+                                                        End; {endfor}
+                                                        For Y := 1 to L do Begin
+                                                                Tmp := aDim[X,Y];
+                                                                aDim[X,Y] := aDim[X+1,Y];
+                                                                aDim[X+1,Y] := Tmp;
+                                                        End; {endfor}
+                                                End; {endif}
+                                        End; {endif}
+                                        If (bDim^[X,1]>bDim^[X+1,1]) then Begin
+                                                For Y := 1 to M do Begin
+                                                        Tmp := bDim^[X,Y];
+                                                        bDim^[X,Y] := bDim^[X+1,Y];
+                                                        bDim^[X+1,Y] := Tmp;
+                                                        Log := 0;
+                                                End; {endfor}
+                                                For Y := 1 to L do Begin
+                                                        Tmp := aDim[X,Y];
+                                                        aDim[X,Y] := aDim[X+1,Y];
+                                                        aDim[X+1,Y] := Tmp;
+                                                End; {endfor}
+                                        End; {endif}
+                                End; {endfor}
+                        End; {endwhile}
+
+
+
+                        tBr := 1;
+                        SetTime(0,0,0,0);
+                        GetTime(cDim[2,tBr,1],cDim[2,tBr,2],cDim[2,tBr,3],cDim[2,tBr,4]);
+                        tBr := tBr + 1;
+
+                        For Br := 1 to ((K - (P*DK)) DIV 10) do Begin
+
+                                ClrScr;
+                                Write(Br);
+                                XX2 := (((K - (P*DK)) DIV 100) * 2);
+                                If (Br / XX2)=(Br DIV XX2) then Begin
+                                        GetTime(cDim[2,tBr,1],cDim[2,tBr,2],cDim[2,tBr,3],cDim[2,tBr,4]);
+                                        tBr := tBr + 1;
+                                End; {endif}
+
+                        For XX := 0 to 10 do Begin
+                                Log := 0;
+                                While (Log<>1) do Begin
+                                        Log := 1;
+                                        En := ((K - (P*DK)) DIV 10);
+                                        If (En + XX)>(K - (P*DK)) then Begin
+                                                En := ((K - (P*DK)) DIV 10) - XX;
+                                        End; {endif}
+                                        If (En + XX)<0 then Begin
+                                                En := 1;
+                                        End; {endif}
+                                        St1 := En + XX;
+                                        For St := 1 to St1 do Begin
+
+                                                Pt := St * 10;
+                                                If Pt>(K - (P*DK)) then Begin
+                                                        Pt := K - (P*DK) - 10;
+                                                End; {endif}
+                                                If Pt<0 then Begin
+                                                        Pt := 1;
+                                                End; {endif}
+                                                If (Pt+10)>(K - (P*DK)) then Begin
+                                                        Pt := K - (P*DK) - 10;
+                                                End; {endif}
+
+                                                For X := Pt to (Pt + 10) do Begin
+							If (bDim^[X,1]=bDim^[(X+1),1]) then Begin
+                                                                If (bDim^[X,2]<bDim^[X+1,2]) then Begin
+                                                                        For Y := 1 to M do Begin
+                                                                                Tmp := bDim^[X,Y];
+                                                                                bDim^[X,Y] := bDim^[X+1,Y];
+                                                                                bDim^[X+1,Y] := Tmp;
+                                                                                Log := 0;
+                                                                        End; {endfor}
+                                                                        For Y := 1 to L do Begin
+                                                                                Tmp := aDim[X,Y];
+                                                                                aDim[X,Y] := aDim[X+1,Y];
+                                                                                aDim[X+1,Y] := Tmp;
+                                                                        End; {endfor}
+                                                                End; {endif}
+                                                        End; {endif}
+                                                        If (bDim^[X,1]<bDim^[X+1,1]) then Begin
+                                                                For Y := 1 to M do Begin
+                                                                        Tmp := bDim^[X,Y];
+                                                                        bDim^[X,Y] := bDim^[X+1,Y];
+                                                                        bDim^[X+1,Y] := Tmp;
+                                                                        Log := 0;
+                                                                End; {endfor}
+                                                                For Y := 1 to L do Begin
+                                                                        Tmp := aDim[X,Y];
+                                                                        aDim[X,Y] := aDim[X+1,Y];
+                                                                        aDim[X+1,Y] := Tmp;
+                                                                End; {endfor}
+                                                        End; {endif}
+                                                End; {endfor}
+                                        End; {endfor}
+                                End; {endwhile}
+                        End; {endfor}
+                        End; {endfor}
+
+                End; {endfor}
+
+
+
+                XX := 2;
+                Writeln('П░и ',XX,' ек▒пе░имен▓ в░емена▓а ▒а ▒ледни▓е:');
+                For X := 1 to 10 do Begin
+                        For Y := 1 to 4 do Begin
+                                Write(':',cDim[XX,X,Y]);
+                        End; {endfor}
+                        Writeln(' ');
+                End; {endfor}
+                Writeln('На▓и▒ни ENTER за п░од║лжение!');
+                Readln(rChr);
+
+
+
+        End; {endif}
+
+
+
+        If ((I<>1) And (J<>4)) then Begin
+                ClrScr;
+                Writeln('Указана▓а комбина╢и┐ о▓ алго░и▓ми не е зададена в ▒о┤▓│е░а !');
+        End; {endif}
+
+SafeDispose( Pointer(bDim));
+
+Writeln('Рабо▓а▓а на п░ог░ама▓а п░икл╛╖и. Довиждане !');
+
+End. { KursovPrj }
+

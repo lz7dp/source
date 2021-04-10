@@ -1,0 +1,182 @@
+
+Program Biserka;
+
+        Uses Crt;
+
+        Var   Tmp : Integer; { ‚°¥¬¥­­  ¯°®¬¥­«¨¢  }
+              Chr : String; { ‘¨¬¢®«­  ¯°®¬¥­«¨¢  }
+              Log : Integer; { —¨±«®¢  ¯°®¬¥­«¨¢  §  «®£¨·¥±ª¨ ¯°®¢¥°ª¨ }
+              SrA : Real;    { ‘°¥¤­®  °¨²¬¥²¨·­® }
+               Br : Real;
+                X : Real;
+                Y : Real;
+                A : Integer; { –¿«® ·¨±«® - °®¿· }
+                B : Integer; { –¿«® ·¨±«® - °®¿· }
+                M : Integer; { –¿«® ·¨±«® - °®¿· }
+               Sr : Real;
+                Z : Array[1..100,1..100] of Real; { „¥ª« °¨°  ¬ ±¨¢ }
+
+
+Begin { Program }
+Chr := ' ';
+ClrScr;
+Writeln('                ƒ€Œ€ ‡€ ‘…„-€ˆ’Œ…’ˆ— € ‹€‘’ˆ ’ Œ€’ˆ–€');
+Writeln('');
+Writeln('                ­  ˆ‘…Š€');
+Writeln('');
+Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+Readln(Chr);
+
+While (Log<>7) do Begin
+        Log := 0;
+        While (Log<1) Or (Log>7) do Begin
+                ClrScr;
+                Writeln('                ƒ€Œ€ ‡€ ‘…„-€ˆ’Œ…’ˆ— € ‹€‘’ˆ ’ Œ€’ˆ–€');
+                Writeln('');
+                Writeln('[1] ......... “‘’€‚Ÿ‚€…');
+                Writeln('[2] ......... ‡€š‹‚€… € Œ€‘ˆ‚€ ‘š‘ –…‹ˆ, ‘‹“—€‰ˆ ‘’‰‘’ˆ');
+                Writeln('[3] ......... 1-¢  ‹€‘’ - ‘…—…ˆ… „ ƒ‹€‚…, €„ ‚’‘’……… „ˆ€ƒ€‹');
+                Writeln('[4] ......... 2-°  ‹€‘’ - ‘…—…ˆ… €„ ƒ‹€‚…, „ ‚’‘’……… „ˆ€ƒ€‹');
+                Writeln('[5] ......... 3-²  ‹€‘’ - ‘…—…ˆ… €„ ƒ‹€‚…, €„ ‚’‘’……… „ˆ€ƒ€‹');
+                Writeln('[6] ......... …—€’€… € …Š€ € Œ€’ˆ–€’€');
+                Writeln('[7] ......... ˆ‡•„ !!!');
+                Writeln(' ');
+                Writeln(' ');
+                Writeln('€€‚…’… ‚€˜ˆŸ’ ˆ‡ => ');
+                Readln(Log);
+        End; {endwhile}
+
+        If Log=1 then Begin
+                        M := 0;
+                        While (M<1) Or (M>100) Or (M<>Int(M)) do Begin
+                                ClrScr;
+                                Writeln('‚º¢¥¤¥²¥ ¬¥°­®±²²  ­  ª¢ ¤° ²­ ²  ¬ ²°¨¶ ² :');
+                                Writeln('( ¶¿«® ·¨±«® ®² 1 ¤® 100 )  => ');
+                                Read(M);
+                        End; {endwhile}
+        End; { if }
+
+        If Log=2 then Begin { case2 }
+                        Writeln('‡ ¯º«¢  ¬ ²°¨¶ ²  ± ¯°®¨§¢®«­¨ ¶¥«¨ ·¨±« .');
+                        Randomize;
+                        For A := 1 to M do Begin
+                                For B := 1 to M do Begin
+                                        Z[A,B] := (Random(100) DIV 1);
+                                End; {endfor}
+                        End; {endfor}
+                        Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+                        Readln(Chr);
+        End; { case2 }
+
+        If Log=3 then Begin { case3 }
+                        ClrScr;
+                        Y := 0;
+                        Br := 0;
+                        For A := 1 to (M Div 2) do Begin
+                                For B := 1 to A do Begin
+                                        Y := Y + Z[A,B];
+                                        Br := Br + 1;
+                                End; {endfor}
+                        End; {endfor}
+                        If (M Div 2)=(M/2) then Begin
+                                Tmp := 0;
+                                For A := ((M Div 2) + 1) to M do Begin
+                                        For B := 1 to ((M Div 2) - Tmp) do Begin
+                                                Y := Y + Z[A,B];
+                                                Br := Br + 1;
+                                        End; {endfor}
+                                        Tmp := Tmp + 1;
+                                End; {endfor}
+                                End
+                        Else Begin
+                        Tmp := 1;
+                        For A := ((M Div 2) + 1) to M do Begin
+                                For B := 1 to ((M Div 2) - Tmp) do Begin
+                                        Y := Y + Z[A,B];
+                                        Br := Br + 1;
+                                End; {endfor}
+                                Tmp := Tmp + 1;
+                        End; {endfor}
+                        End; {endif}
+                        Writeln('‘…„’ €ˆ’Œ…’ˆ— ‚ ‹€‘’’€ … ');
+                        Write(Y/Br);
+                        Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+                        Readln(Chr);
+        End; { case3 }
+
+        If Log=4 then Begin { case4 }
+                        ClrScr;
+                        Y := 0;
+                        Br := 0;
+                        For A := 1 to (M Div 2) do Begin
+                                For B := (M - A + 1) to M do Begin
+                                        Y := Y + Z[A,B];
+                                        Br := Br + 1;
+                                End; {endfor}
+                        End; {endfor}
+                        If (M Div 2)=(M/2) then Begin
+                                Tmp := 0;
+                                For A := ((M Div 2) + 1) to M do Begin
+                                        For B := ((M Div 2) - Tmp) to M do Begin
+                                                Y := Y + Z[A,B];
+                                                Br := Br + 1;
+                                        End; {endfor}
+                                        Tmp := Tmp + 1;
+                                End; {endfor}
+                                End
+                        Else Begin
+                        Tmp := 1;
+                        For A := ((M Div 2) + 1) to M do Begin
+                                For B := ((M Div 2) + Tmp) to M do Begin
+                                        Y := Y + Z[A,B];
+                                        Br := Br + 1;
+                                End; {endfor}
+                                Tmp := Tmp + 1;
+                        End; {endfor}
+                        End; {endif}
+                        Writeln('‘…„’ €ˆ’Œ…’ˆ— ‚ ‹€‘’’€ … ');
+                        Write(Y/Br);
+                        Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+                        Readln(Chr);
+        End; { case4 }
+
+        If Log=5 then Begin { case5 }
+                        ClrScr;
+                        Y := 0;
+                        Br := 0;
+                        Tmp := 0;
+                        For A := 1 to (M Div 2) do Begin
+                                For B := (1 + Tmp) to (M - Tmp) do Begin
+                                        Y := Y + Z[A,B];
+                                        Br := Br + 1;
+                                End; {endfor}
+                                Tmp := Tmp + 1;
+                        End; {endfor}
+                        Writeln('‘…„’ €ˆ’Œ…’ˆ— ‚ ‹€‘’’€ … ');
+                        Write(Y/Br);
+                        Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+                        Readln(Chr);
+        End; { case5 }
+
+        If Log=6 then Begin { case6 }
+                        ClrScr;
+                        Writeln('Œ ²°¨¶ ²  ¥ ®² ±«¥¤­¨¿ ¢¨¤:');
+                        For A := 1 to M do Begin
+                                For B := 1 to M do Begin
+                                        Write(Z[A,B],' ');
+                                End; {endfor}
+                                Writeln(' ');
+                                If ((A/20)=(A Div 20)) then Begin
+                                        Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+                                        Readln(Chr);
+                                End; {endif}
+                        End; {endfor}
+                        Writeln('');
+                        Writeln('                 ²¨±­¥²¥ ª« ¢¨¸  (RETURN) §  ¯°®¤º«¦¥­¨¥!');
+                        Readln(Chr);
+        End; { case6 }
+End; {endwhile}
+ClrScr;
+Writeln('°®£° ¬ ²  ¯°¨ª«¾·¨ ° ¡®² ! „®¢¨¦¤ ­¥!');
+End. { Program }
+

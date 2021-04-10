@@ -1,0 +1,34 @@
+//
+// MANAGER.RMK
+//
+//
+// RMAKE fm
+//
+
+// Inference rule
+.prg.obj:
+    SET CLIPPERCMD=/N /W
+    Clipper $*
+
+FM.OBJ:  fm.prg  manager.ch
+MANAGDBF.OBJ: managdbf.prg manager.ch
+MANAGMIS.OBJ: managmis.prg manager.ch
+MANAGVEW.OBJ: managvew.prg manager.ch
+MANAGDCR.OBJ: managdcr.prg manager.ch
+MANAGINF.OBJ: managinf.prg manager.ch
+
+.obj.exe:
+   SET RTLINKCMD=/posi
+   RTLINK $**;
+
+fm.exe : FM.OBJ MANAGDBF.OBJ MANAGMIS.OBJ MANAGVEW.OBJ MANAGDCR.OBJ \
+         MANAGINF.OBJ
+
+
+
+// EOF - MANAGER.RMK //
+
+
+
+
+

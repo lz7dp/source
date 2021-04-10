@@ -1,0 +1,54 @@
+*                                       *
+*       OPIS NA BASITE                  *
+*                                       ***************************************
+***************************************  mat_kn.dbf
+ dma.dbf                                 Name        Type      Length Decimals
+ Name        Type      Length Decimals  컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴   Sklad       Character     10
+ Nom_op      Numeric       10            Nom_mat     Numeric       10
+ Wid_op      Character     15            Name_mat    Character     25
+ Wid_doc     Character     10            Sr_cena     Numeric       15        2
+ Nom_doc     Numeric       10            Ostat0101   Numeric       15        3
+ Data_doc    Date           8            Prihod      Numeric       15        3
+ Nom_aktiv   Numeric       10            Razhod      Numeric       15        3
+ Name_aktiv  Character     25            Ostat       Numeric       15        3
+ Proizhod    Character     15           *
+ Start_cena  Numeric       15        2  *
+ Natr_izhab  Numeric       15        2  ***************************************
+ Godnos_god  Numeric        2            oper_kn.dbf
+ Wid_aktiv   Character     15            Name        Type      Length Decimals
+ Marka       Character     20           컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+ Model       Character     15            Nom_op      Numeric       10
+ Fabr_nom    Character     15            Wid_op      Character     15
+*                                        Name_doc    Character     15
+*                                        Nom_doc     Numeric       10
+***************************************  Data_doc    Date           8
+ mat_dv.dbf                              Firma       Character     30
+ Name        Type      Length Decimals   Adres_f     Character     25
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴   Nom_dan     Numeric       10
+ Nom_op      Numeric       10            Bulstat     Character     11
+ Wid_op      Character     15            Mol         Character     35
+ Name_doc    Character     15            N_mqsto     Character     15
+ Nom_doc     Numeric       10            Data_sys    Date           8
+ Data_doc    Date           8            Poluchil    Character     35
+ Firma       Character     30            Lp_ser_pol  Character      1
+ Adres_f     Character     25            Lp_nom_pol  Numeric       10
+ Nom_dan     Numeric       10            Rpu         Character     15
+ Bulstat     Character     11            Data_izd    Date           8
+ Mol         Character     35            Bank_kod    Character     10
+ N_mqsto     Character     15            Bank_sm     Character     10
+ Data_sys    Date           8            Stoka       Character     35
+ Poluchil    Character     35            Mqrka       Character      5
+ Lp_ser_pol  Character      1            Kolichest   Numeric       15        3
+ Lp_nom_pol  Numeric       10            Cena        Numeric       15        2
+ Rpu         Character     15            Suma        Numeric       16        2
+ Bank_kod    Character     10            Suma_end    Numeric       16        2
+ Bank_sm     Character     10           *
+ Sklad       Character     10           ***************************************
+ Stoka       Character     35
+ Mqrka       Character      5
+ Kolichest   Numeric       15        3
+ Cena        Numeric       15        2
+ Suma        Numeric       16        2
+
+

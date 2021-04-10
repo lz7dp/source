@@ -1,0 +1,74 @@
+{Project - Ver 1.00/29.08.96}
+
+
+
+Program KursovPrj;
+        Uses Crt;
+
+        Type TDim = Array[1..2,1..1000] of String;
+             PDim = ^TDim;
+
+        Var   Tmp : Real;    { Temporal Var }
+              Log : Integer; { Logical Var }
+                I : Integer; { 1 Alg. }
+                J : Integer; { 2 Alg. }
+                K : Integer; { Max. Br. Elem. }
+               DK : Integer; { Step }
+                P : Integer; { Br. Exper. }
+                L : Integer; { Max. Leng. Elem.}
+                N : Integer; { Pos. for Key }
+                M : Integer; { Leng. for Key }
+                X : Integer; { Br. }
+                Y : Integer; { Br. }
+             rChr : String;  { Tmp. Str. }
+             aDim : Array[1..2,1..1000] of String; { Data }
+             bDim : PDim; { Key }
+             cDim : Array[1..1000] of Integer; { Index }
+
+
+
+Begin { KursovPrj }
+           P := 0;
+           L := 30;
+           N := 10;
+           M := 2;
+           I := 1;
+           J := 4;
+           K := 1000;
+          DK := 100;
+         Tmp := 0;
+        rChr := '';
+
+        If I=1 .And. J=4 then Begin
+		Randomize;
+                For X := 1 to 1000 do Begin
+                        For Y := 1 to L do Begin
+                                While (Tmp<0 .Or. Tmp>255) do Begin
+                                        Tmp := Int(Random(255));
+                                end; {endwhile}
+				rChr = EnvStr(Tmp);
+                                aDim[1,X] := aDim[1,X] + rChr;
+                        End; {endfor}
+                        aDim[2,X] := aDim[1,X];
+                End; {endfor}
+
+                For X := 1 to 1000 do begin
+
+                end; {endfor}
+
+                For P := 0 to 2 do Begin
+
+                End; {endfor}
+        End; {endif}
+
+
+
+        If I<>1 .And. J<>4 then Begin
+                ClrScr;
+                Writeln('Указана▓а комбина╢и┐ о▓ алго░и▓ми не е зададена в ▒о┤▓│е░а !');
+        End; {endif}
+
+
+
+End. { KursovPrj }
+

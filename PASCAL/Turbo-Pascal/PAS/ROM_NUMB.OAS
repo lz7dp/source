@@ -1,0 +1,51 @@
+
+program roman_numbers;
+  uses crt;
+  const a:string[7]='IVXLCDM';
+  type st4=string[4];
+  var n:integer;
+  procedure PRESENT(m:integer);
+    var st:string[40];
+        k,i,po:integer;
+    function   CONVERT(j,p:integer):st4;
+      var s:st4;
+      begin
+        case j of
+          0:s:='';
+          1:s:=a[p];
+          2:s:=a[p]+a[p];
+          3:s:=a[p]+a[p]+a[p];
+          4:s:=a[p]+a[p+1];
+          5:s:=a[p+1];
+          6:s:=a[p+1]+a[p];
+          7:s:=a[p+1]+a[p]+a[p];
+          8:s:=a[p+1]+a[p]+a[p]+a[p];
+          9:s:=a[p]+a[p+2];
+        end;
+        convert:=s;
+      end;
+    begin  {present}
+      st:='';
+      k:=m;
+      po:=1;
+      repeat
+        i:=m mod 10;
+        m:=m div 10;
+        st:=convert(i,po)+st;
+        po:=po+2;
+      until m=0;
+      writeln(k,' ---|>',st);
+    end;{present}
+  BEGIN
+    clrscr;
+    repeat
+      writeln('в║веде▓е ╢┐ло ╖и▒ло в ин▓е░вала о▓ 0 до 3999');
+      readln(n);
+      if (n>0) and (n<4000) then
+         present(n)
+      else
+         writeln('неко░ек▓но ╖и▒ло');
+    until (n<1) or (n>3999);
+  END.
+
+

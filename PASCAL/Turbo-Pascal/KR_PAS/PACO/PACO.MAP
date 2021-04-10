@@ -1,0 +1,10 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 00B71H 00B72H PROGRAM            CODE
+ 00B80H 0119EH 0061FH Crt                CODE
+ 011A0H 02805H 01666H System             CODE
+ 02810H 035B3H 00DA4H DATA               DATA
+ 035C0H 075BFH 04000H STACK              STACK
+ 075C0H 075C0H 00000H HEAP               HEAP
+

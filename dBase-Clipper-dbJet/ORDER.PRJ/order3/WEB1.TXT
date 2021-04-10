@@ -1,0 +1,47 @@
+-----------------------------------------------------------------------------
+From:            webmail@eolas.ucc.ie
+Reply to:        webmail-control@eolas.ucc.ie (WebMail Controller)
+Date Posted:     Saturday, February 21, 1998 10:15:41 PM
+Date Delivered:  Saturday, February 21, 1998 10:21:39 PM
+
+Subject:         
+-----------------------------------------------------------------------------
+
+RFC-822-Headers:
+Comments: This is an automated reply to your request to WebMail.          Do NOT use REPLY to submit further requests.
+Apparently-To: /G=DMD-COMPUTER/S=COM/O=DPAVLOV/@bulmail.sprint.com
+
+There was no identifiable URL specified in the body of your mail message.
+For details of how to use the WEBMAIL server, send the command "HELP"
+
+go www.pari.bg
+
+I am sorry for the long delay. This was due to serious network
+problems. The WebMail service is now coming back online but the
+queue will take some time to clear (3,400 messages). 
+
+WARNING: the obsolete address webmail@curia.ucc.ie will die in
+a few weeks time: THE CORRECT ADDRESS IS WEBMAIL@WWW.UCC.IE
+
+-----------------------------------------------------------------------
+
+The Internet TOURBUS is a free guided tour of cyberspace, delivered
+twice weekly by e-mail. To sign up, send the command
+   SUBSCRIBE TOURBUS your name 
+(in the body of your message) to "listserv@listserv.aol.com".  You can
+also visit the TOURBUS site at http://www.worldvillage.com/tourbus.htm
+
+
+Top 10 or so URLs requested from your
+domain .com (USA Commercial companies)
+
+214 http://www.cpcw.com
+23 http://www.microsoft.com
+22 http://www.isdmag.com/NewsReleases/TodaysNews.html
+21 http://www.yahoo.com
+19 http://users.aol.com/SHarrisNS/test.htm
+17 http://quote.yahoo.com/q?s=^dji+mo+xon+gm+ip+mmm+coms+aol+lnct+invx+cacc+actc+klac+pixr+srsl+imsi+intc+rnwk+dell+slot+iom+amzn+egrp+tdfx&d=t&o=t
+15 http://techweb.cmp.com/eet/823/hr.html
+14 http://www.cnn.com
+14 http://www.indopubs.com/archives/
+14 http://www.minghua.com/chinafax/main.html

@@ -1,0 +1,2 @@
+bds.com
+razpr.exe
