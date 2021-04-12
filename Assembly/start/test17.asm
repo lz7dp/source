@@ -1,5 +1,5 @@
 
-;;;;;;;;;;;;;; c program with assembly function
+;;;;;;;;;;;;;; C program main.c call Assembly function add42.asm
 ;
 ;vi add42.asm
 ;nasm -f elf32 add42.asm -o add42.o

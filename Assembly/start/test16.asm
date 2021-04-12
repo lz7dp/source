@@ -1,3 +1,4 @@
+; ASM program call C function printf
 global main
 extern printf
 
