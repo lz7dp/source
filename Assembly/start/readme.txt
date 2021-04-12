@@ -1,4 +1,5 @@
 
+https://www.youtube.com/watch?v=wLXIWKUWpSs&list=PLmxT2pVYo5LB5EzTPZGfFN0c2GDiSXgQe
 https://www.youtube.com/watch?v=rxsBghsrvpI
 https://www.youtube.com/watch?v=VQAKkuLL31g&list=PLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn
 https://www.youtube.com/watch?v=ViNnfoE56V8
@@ -15,7 +16,20 @@ https://securitybg.fandom.com/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0
 nasm -f elf test.asm
 ld test.o -o test    /// gcc test.o -o tes
 
-
+; compile .asm
 nasm -f elf32 test.asm -o test.o
+; link .o
 ld -m elf_i386 test.o -o test
+
+
+; assembly program with c function
+gcc -m32 t16.o -o t16
+
+
+; c program with assembly function
+vi add42.asm
+nasm -f elf32 add42.asm -o add42.o
+vi add42.h
+vi main.c
+gcc -m32 add42.o main.c -o t17
 
