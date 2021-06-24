@@ -1,0 +1,17 @@
+SRC1     START
+         TITLE'HELLO WORLD!'                                                          
+         PRINT NOGEN                                                    
+         BALR  10,0                                                     
+         USING *,10
+*                                                                                                                  
+MESS     WROUT MESSAGE,ERROR,PARMOD=31,VTSUCBA=VTSUPAR
+         B     END1                 
+ERROR    B     END1                                                        
+END1     TERM                                                           
+*                                                                       
+VTSUPAR  VTSUCB MODE=LINE,BELL=YES                                      
+MESSAGE  DC    Y(L'ME+5)                                                
+         DC    X'404001'                                                
+ME       DC    C'HELLO WORLD!'                                   
+*                                                                       
+         END

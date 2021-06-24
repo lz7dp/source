@@ -1,0 +1,15 @@
+SRC3     START
+         TITLE'MEANINGLESS WITH DATA TYPES'
+         USING *,15
+         LA    10,DAT1
+         TERM
+DAT1     DC    CL5'ABCDE'
+         DC    CL6'XXXXXX'
+         DC    FL4'1234'
+         DC    EL4'-1.3E2'
+DS       DSECT
+DS1      DS    CL5
+         DS    CL6
+DS3      DS    FL4
+DS4      DS    EL4
+         END

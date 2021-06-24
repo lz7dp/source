@@ -1,0 +1,57 @@
+SRC5     START
+         TITLE 'COMPUTE THE SUM OF N NUMBERS (N <= 10)'
+         PRINT NOGEN
+SRC5     AMODE ANY
+SRC5     RMODE ANY
+         GPARMOD 31
+         BASR  R2,R0
+         USING *,R2
+*
+START1   WROUT MESS1,END
+         L     R5,=F'1'
+LOOP     A     R5,=F'1'
+         CH    R5,ZEHN
+         BH    FROM
+READ     RDATA INPUT,END
+COMP     CLC   INPUT+4(2),NULL
+         BE    FROM
+ADD      PACK  PACK,INPUT+4(2)
+         AP    TOTAL,PACK
+         B     LOOP
+FROM     UNPK  RESUL,TOTAL
+         MVZ   RESUL+6(1),ZONE
+         WROUT MESS2,END
+         B     END
+ERROR    WROUT MESS3,END
+END      TERM
+*
+* DEFINITIONEN
+*
+MESS1    DC    Y(L'M1+5)
+         DC    X'404001'
+M1       DC    C'PLEASE ENTER (UP TO 10) 2-DIGIT NUMBERS. FOR END: 00'
+INPUT    DC    XL6'00'
+PACK     DC    PL2'0'
+*
+MESS2    DC    Y(L'M2+L'RESUL+5)
+         DC    X'404001'
+M2       DC    C'SUM:'
+RESUL    DC    CL7' '
+*
+ZEHN     DC    H'11'
+NULL     DC    X'F0F0'
+TOTAL    DC    PL4'0'
+ZONE     DC    X'F0'
+*
+MESS3    DC    Y(L'M3+5)
+         DC    X'404001'
+M3       DC    C'NO MORE THAN 10 NUMBERS CAN BE PROCESSED!'
+*
+R0       EQU   0
+R1       EQU   1
+R2       EQU   2
+R3       EQU   3
+R4       EQU   4
+R5       EQU   5
+*         
+         END
