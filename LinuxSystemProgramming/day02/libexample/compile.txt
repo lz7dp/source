@@ -1,3 +1,0 @@
-gcc -c src/main.c -o bin/main.o
-gcc -c src/addlib/add.c -o bin/static/add.o
-gcc -c src/addlib/answer.c -o bin/static/answer.o
