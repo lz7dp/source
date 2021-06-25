@@ -1,6 +1,0 @@
-SRC0     START
-         TITLE'SIMPLIEST PROGRAM'                                                                                                        
-         BALR  10,0                                                     
-         USING *,10                                                     
-ERROR    NOP   0                                                                                                                           
-         END
