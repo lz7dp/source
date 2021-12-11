@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
-iris = pd.read_csv('https://sololearn.com/uploads/files/iris.csv')
+iris = pd.read_csv('iris.csv')
 
 iris.drop('id', axis=1, inplace=True)
 
