@@ -1,0 +1,77 @@
+sudo apt update
+
+sudo apt install postgresql postgresql-contrib
+
+sudo -i -u postgres		///	sudo -u postgres psql
+
+sudo systemctl start postgresql@12-main   	/// pg_ctlcluster 12 main start
+
+sudo apt-get install pgloader
+
+sudo -u postgres createuser --interactive
+sudo -u postgres createdb cryptodb
+
+sudo pgloader mysql://user:pass@localhost/cryptodb postgresql://user:pass@localhost/cryptodb
+
+
+psql
+
+###############################
+
+CREATE TABLE BCN (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 0.00000000
+);
+
+CREATE TABLE BTC (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 0000.00000000
+);
+
+CREATE TABLE TNC (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 00.00000000
+);
+
+CREATE TABLE XMR (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 00000000.0000
+);
+
+CREATE TABLE STORJ (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 0000000.00000
+);
+
+CREATE TABLE ETH (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 00000000.0000
+);
+
+CREATE TABLE XRP (
+    price_id serial PRIMARY KEY,
+    price_date date DEFAULT NULL,
+    price_time time DEFAULT NULL,
+    price double precision DEFAULT NULL,
+    pred_price double precision DEFAULT 000000.000000
+);
+
+###############################
