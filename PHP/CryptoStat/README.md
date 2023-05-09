@@ -3,7 +3,7 @@
 
 This is my first Python3 + PHP7 + MariaDB10 project.
 
-Simple crypto statistic for some crypto coins who interested me.
+Simple crypto statistic for some crypto coins.
 
 When accumulating enough statistic, will be continued as price prediction service of some coins.
 
