@@ -3,9 +3,9 @@
 
 This is my first Python3 + PHP7 + MariaDB10 project.
 
-Simple crypto statistic for some crypto coins who interested me.
+Simple crypto statistic for some crypto coins.
 
-When accumulating enough statistic, will be continued as price prediction service of some coins.
+When accumulate enough statistic, will be finished with price prediction functionality.
 
 My test server with last sources: http://84.54.146.97:8088/
 
