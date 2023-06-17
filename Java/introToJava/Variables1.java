@@ -2,7 +2,7 @@ package introToJava;
 
 // LITERALI
 
-public class Promenlivi {
+public class Variables1 {
 	
 	public static void main(String[] args) {
 	

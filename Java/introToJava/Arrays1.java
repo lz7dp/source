@@ -3,7 +3,7 @@ package introToJava;
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class Masivi {
+public class Arrays1 {
 		
 		public static void main(String[] args) {
 			int i1 = 0;
