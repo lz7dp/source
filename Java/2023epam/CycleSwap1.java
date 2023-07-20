@@ -1,13 +1,15 @@
+package com.epam.rd.autotasks;
+
 import java.util.Arrays;
 
-public class CycleSwap {
+class CycleSwap {
     public static void main(String[] args) {
     int[] array = new int[]{1, 3, 2, 7, 4};
     CycleSwap.cycleSwap(array);
     System.out.println(Arrays.toString(array));
     }
 
-    public static void cycleSwap(int[] array) {
+    static void cycleSwap(int[] array) {
         if (array.length <= 1) {
             return; // Nothing to swap for an array with 0 or 1 element
         }
@@ -19,7 +21,7 @@ public class CycleSwap {
         array[0] = temp;
     }
 
-    public static void cycleSwap(int[] array, int shift) {
+    static void cycleSwap(int[] array, int shift) {
         if (array.length <= 1) {
             return; // Nothing to swap for an array with 0 or 1 element
         }
