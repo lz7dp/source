@@ -1,3 +1,4 @@
+# SPL4 - real executed source code generator from trace and listing files
 # generate <code trace> files from <trace> and <listing> files
 
 module_name = input("Module name (default=NAME@):") or "NAME@"
