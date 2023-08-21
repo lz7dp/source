@@ -1,4 +1,4 @@
-class StartMethod {
+class ByValue {
   public static void start(int number) {
     System.out.println("Old value of \"number\" into \"start\" method is:" + number);
     number = 3;
