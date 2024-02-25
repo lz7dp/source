@@ -1,3 +1,5 @@
+// explicit initializers of class fields with their initial values
+
 public class InitDemo2 {
     private static char ch = 'A';
     private static boolean bb = true;

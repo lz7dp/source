@@ -1,3 +1,5 @@
+//  initializing a class is automatic initialization with default values
+
 public class InitDemo1 {
     private static char ch;
     private static boolean bb;
