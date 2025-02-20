@@ -1,5 +1,3 @@
 crontab -e
 crontab -l
 
-1 * * * * /home/dpp/crypto.sh
-31 * * * * /home/dpp/crypto.sh
