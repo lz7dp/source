@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Server Temperature Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .cool {
+            color: #2196F3;
+        }
+        .normal {
+            color: #4CAF50;
+        }
+        .warm {
+            color: #FF9800;
+        }
+        .hot {
+            color: #F44336;
+            font-weight: bold;
+        }
+        .critical {
+            color: #9C27B0;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+            padding: 20px;
+        }
+        .error {
+            color: #F44336;
+            padding: 20px;
+            border: 1px solid #F44336;
+            background-color: #FFEBEE;
+            border-radius: 4px;
+        }
+        .last-updated {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Linux Server Temperature Monitor
+        <button id="refresh-btn">Refresh Data</button>
+    </h1>
+    <div id="last-updated" class="last-updated"></div>
+    <div id="output">
+        <p class="loading">Loading temperature data...</p>
+    </div>
+
+    <script>
+        // Temperature thresholds
+        const TEMP_THRESHOLDS = {
+            cool: 30,
+            normal: 50,
+            warm: 70,
+            hot: 85,
+            critical: 100
+        };
+
+        // Function to get temperature class
+        function getTempClass(temp) {
+            if (temp >= TEMP_THRESHOLDS.critical) return 'critical';
+            if (temp >= TEMP_THRESHOLDS.hot) return 'hot';
+            if (temp >= TEMP_THRESHOLDS.warm) return 'warm';
+            if (temp >= TEMP_THRESHOLDS.normal) return 'normal';
+            return 'cool';
+        }
+
+        // Function to create a table row
+        function createTableRow(sensorName, adapter, component, tempKey, tempValue) {
+            const row = document.createElement('tr');
+            
+            const tempClass = getTempClass(tempValue);
+            const formattedValue = tempValue.toFixed(1) + '°C';
+            
+            row.innerHTML = `
+                <td>${sensorName}</td>
+                <td>${adapter}</td>
+                <td>${component}</td>
+                <td>${tempKey.replace('_input', '').replace('_', ' ')}</td>
+                <td class="${tempClass}">${formattedValue}</td>
+            `;
+            
+            return row;
+        }
+
+        // Function to display the data in a table
+        function displayData(tempData) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+            
+            const table = document.createElement('table');
+            const thead = document.createElement('thead');
+            const tbody = document.createElement('tbody');
+            
+            thead.innerHTML = `
+                <tr>
+                    <th>Sensor</th>
+                    <th>Adapter</th>
+                    <th>Component</th>
+                    <th>Measurement</th>
+                    <th>Value</th>
+                </tr>
+            `;
+            
+            for (const [sensorName, sensorData] of Object.entries(tempData)) {
+                const adapter = sensorData.Adapter;
+                
+                for (const [component, values] of Object.entries(sensorData)) {
+                    if (component !== 'Adapter') {
+                        for (const [tempKey, tempValue] of Object.entries(values)) {
+                            if (typeof tempValue === 'number') {
+                                const row = createTableRow(
+                                    sensorName,
+                                    adapter,
+                                    component,
+                                    tempKey,
+                                    tempValue
+                                );
+                                tbody.appendChild(row);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            outputDiv.appendChild(table);
+            
+            // Update last updated time
+            const now = new Date();
+            document.getElementById('last-updated').textContent = 
+                `Last updated: ${now.toLocaleTimeString()}`;
+        }
+
+        // Function to handle errors
+        function displayError(message) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `<p class="error">Error: ${message}</p>`;
+            
+            // Update last updated time with error
+            const now = new Date();
+            document.getElementById('last-updated').textContent = 
+                `Last update failed: ${now.toLocaleTimeString()}`;
+        }
+
+        // Function to load data
+        function loadData() {
+            document.getElementById('output').innerHTML = 
+                '<p class="loading">Loading temperature data...</p>';
+                
+            fetch('temp.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => displayData(data))
+                .catch(error => displayError(error.message));
+        }
+
+        // Initial load when page loads
+        window.onload = loadData;
+
+        // Add refresh button functionality
+        document.getElementById('refresh-btn').addEventListener('click', loadData);
+
+        // Optional: Auto-refresh every 10 seconds
+        // setInterval(loadData, 10000);
+    </script>
+</body>
+</html>
