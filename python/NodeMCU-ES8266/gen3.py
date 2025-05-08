@@ -6,7 +6,7 @@ done = False
 
 while True:
     def pw_guess():
-        res = itertools.permutations('ABCDE' ,5)
+        res = itertools.permutations(characters ,length)
         for guess in res:
             yield guess
 
