@@ -1,0 +1,112 @@
+
+    <!-- Image Section 1 - Market Trends -->
+<section class="image-section">
+    <div class="container">
+        <!-- new section -->
+
+        <!-- end new section -->
+    </div>
+</section>
+
+    <!-- old Sections -->
+
+    <!-- Footer -->
+    <section class="contact" id="contact">
+        <div class="container">     
+    <footer>    
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CryptoPredict</h3>
+                    <p>Advanced cryptocurrency prediction platform using artificial intelligence to help traders and investors make better decisions.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Risk Disclosure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> mail@email.mail</li>
+                        <li><i class="fas fa-phone"></i> +359(0) 000 000-000</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 13 Wall Street, Blockchain City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CryptoPredict. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const loginForm = document.querySelector('.login-container form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Here you would typically send the data to your server
+                console.log('Login attempt with:', { email, password });
+                
+                // For demo purposes, just show an alert
+                alert('Login functionality would connect to your backend system. Submitted: ' + email);
+            });
+        }
+    </script>
+
+</body>
+</html>
+<!-- This is a simple HTML template for a cryptocurrency prediction platform. It includes sections for the header, hero, login form, features, testimonials, and footer. The CSS styles are included in the head section for easy customization. The JavaScript at the end handles mobile menu toggling and form submission. -->

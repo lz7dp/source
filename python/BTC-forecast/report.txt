@@ -1,0 +1,340 @@
+
+<h1>BTC CryptoCurrency Forecasting Report</h1>
+<p>Report generated on: 
+2025-05-16 10:21:53.372926
+</p>
+<p>Data Summary: </p>
+<p>Total data points: 
+30
+</p>
+<img src='raw_data_check.png' style='max-width:100%;'>
+<p>Starting cryptocurrency price prediction...</p>
+<img src='price_history.png' style='max-width:100%;'>
+<img src='price_distribution.png' style='max-width:100%;'>
+<img src='rolling_stats.png' style='max-width:100%;'>
+<hr><br>
+<p>Results of Dickey-Fuller Test: </p>
+<p><center>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Test Statistic</th>
+      <td>-1.241714</td>
+    </tr>
+    <tr>
+      <th>p-value</th>
+      <td>0.655399</td>
+    </tr>
+    <tr>
+      <th>No. of lags used</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Number of observations used</th>
+      <td>29.000000</td>
+    </tr>
+    <tr>
+      <th>critical value (1%)</th>
+      <td>-3.679060</td>
+    </tr>
+    <tr>
+      <th>critical value (5%)</th>
+      <td>-2.967882</td>
+    </tr>
+    <tr>
+      <th>critical value (10%)</th>
+      <td>-2.623158</td>
+    </tr>
+  </tbody>
+</table>
+</center></p>
+<br><hr>
+<p>ADF test p-value:
+0.6553992259896304
+</p>
+<p>ADF test p-value great than 0.05</p>
+<p>Series is not stationary - applying differencing: </p>
+<img src='rolling_stats.png' style='max-width:100%;'>
+<hr><br>
+<p>Results of Dickey-Fuller Test: </p>
+<p><center>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Test Statistic</th>
+      <td>-5.022507</td>
+    </tr>
+    <tr>
+      <th>p-value</th>
+      <td>0.000020</td>
+    </tr>
+    <tr>
+      <th>No. of lags used</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Number of observations used</th>
+      <td>28.000000</td>
+    </tr>
+    <tr>
+      <th>critical value (1%)</th>
+      <td>-3.688926</td>
+    </tr>
+    <tr>
+      <th>critical value (5%)</th>
+      <td>-2.971989</td>
+    </tr>
+    <tr>
+      <th>critical value (10%)</th>
+      <td>-2.625296</td>
+    </tr>
+  </tbody>
+</table>
+</center></p>
+<br><hr>
+<img src='decomposition.png' style='max-width:100%;'>
+<hr>
+<p>Data Split Summary:</p>
+<p>Training data size: 
+21
+<p>
+<p>Validation data size: 
+4
+<p>
+<p>Test data size: 
+4
+<p>
+<img src='data_split.png' style='max-width:100%;'>
+<hr>
+<p>Building ARIMA Model...</p>
+<p><center>
+<table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>           <td>y</td>        <th>  No. Observations:  </th>   <td>21</td>   
+</tr>
+<tr>
+  <th>Model:</th>           <td>SARIMAX(2, 2, 1)</td> <th>  Log Likelihood     </th> <td>44.743</td> 
+</tr>
+<tr>
+  <th>Date:</th>            <td>Fri, 16 May 2025</td> <th>  AIC                </th> <td>-81.485</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>10:21:59</td>     <th>  BIC                </th> <td>-77.708</td>
+</tr>
+<tr>
+  <th>Sample:</th>             <td>04-18-2025</td>    <th>  HQIC               </th> <td>-80.846</td>
+</tr>
+<tr>
+  <th></th>                   <td>- 05-08-2025</td>   <th>                     </th>    <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>    <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>   -0.3747</td> <td>    0.289</td> <td>   -1.297</td> <td> 0.195</td> <td>   -0.941</td> <td>    0.192</td>
+</tr>
+<tr>
+  <th>ar.L2</th>  <td>   -0.4172</td> <td>    0.235</td> <td>   -1.775</td> <td> 0.076</td> <td>   -0.878</td> <td>    0.043</td>
+</tr>
+<tr>
+  <th>ma.L1</th>  <td>   -0.9708</td> <td>    2.054</td> <td>   -0.473</td> <td> 0.636</td> <td>   -4.996</td> <td>    3.054</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td>    0.0004</td> <td>    0.001</td> <td>    0.528</td> <td> 0.598</td> <td>   -0.001</td> <td>    0.002</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.02</td> <th>  Jarque-Bera (JB):  </th> <td>0.68</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.88</td> <th>  Prob(JB):          </th> <td>0.71</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>0.25</td> <th>  Skew:              </th> <td>-0.45</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.11</td> <th>  Kurtosis:          </th> <td>3.20</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</center></p>
+<img src='arima_diagnostics.png' style='max-width:100%;'>
+<hr>
+<p>Using ARIMA order: 
+(2, 2, 1)
+</p>
+<p><center>
+<table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>price</td>      <th>  No. Observations:  </th>   <td>21</td>   
+</tr>
+<tr>
+  <th>Model:</th>            <td>ARIMA(2, 2, 1)</td>  <th>  Log Likelihood     </th> <td>44.743</td> 
+</tr>
+<tr>
+  <th>Date:</th>            <td>Fri, 16 May 2025</td> <th>  AIC                </th> <td>-81.485</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>10:22:01</td>     <th>  BIC                </th> <td>-77.708</td>
+</tr>
+<tr>
+  <th>Sample:</th>             <td>04-18-2025</td>    <th>  HQIC               </th> <td>-80.846</td>
+</tr>
+<tr>
+  <th></th>                   <td>- 05-08-2025</td>   <th>                     </th>    <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>    <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>   -0.3747</td> <td>    0.289</td> <td>   -1.297</td> <td> 0.195</td> <td>   -0.941</td> <td>    0.192</td>
+</tr>
+<tr>
+  <th>ar.L2</th>  <td>   -0.4172</td> <td>    0.235</td> <td>   -1.775</td> <td> 0.076</td> <td>   -0.878</td> <td>    0.043</td>
+</tr>
+<tr>
+  <th>ma.L1</th>  <td>   -0.9708</td> <td>    2.054</td> <td>   -0.473</td> <td> 0.636</td> <td>   -4.996</td> <td>    3.054</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td>    0.0004</td> <td>    0.001</td> <td>    0.528</td> <td> 0.598</td> <td>   -0.001</td> <td>    0.002</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.02</td> <th>  Jarque-Bera (JB):  </th> <td>0.68</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.88</td> <th>  Prob(JB):          </th> <td>0.71</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>0.25</td> <th>  Skew:              </th> <td>-0.45</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.11</td> <th>  Kurtosis:          </th> <td>3.20</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</center></p>
+<p>Evaluating ARIMA Model...</p>
+<p>ARIMA Model Evaluation:</p>
+<p>Validation RMSE: 
+0.030568677417410622
+</p>
+<p>Validation MAE: 
+0.022474800016785552
+</p>
+<p>Test RMSE: 
+0.009448271726336147
+</p>
+<p>Test MAE: 
+0.008020281250788894
+</p>
+<img src='arima_predictions.png' style='max-width:100%;'>
+<hr>
+<p>LSTM Data Shapes: </p>
+<p>X_train: 
+(17, 7, 1)
+, y_train: 
+(17,)
+</p>
+<p>X_val: 
+(3, 7, 1)
+, y_val: 
+(3,)
+</p>
+<p>X_test: 
+(3, 7, 1)
+, y_test: 
+(3,)
+</p>
+<p>Building LSTM Model...</>
+<img src='lstm_training.png' style='max-width:100%;'>
+<hr>
+<p>Evaluating LSTM Model...</p>
+<p>LSTM Model Evaluation: </p>
+<p>Validation RMSE: 
+9999.963400843462
+</p>
+<p>Validation MAE: 
+9938.34826075456
+</p>
+<p>Test RMSE: 
+8074.441869519903
+</p>
+<p>Test MAE: 
+8039.740210950302
+</p>
+<img src='lstm_predictions.png' style='max-width:100%;'>
+<hr>
+<p>Forecasting next 3 days...</p>
+<img src='future_forecast.png' style='max-width:100%;'>
+<hr>
+<p>Prediction completed successfully!</p>
+<p>Forecast Results: </p>
+<p><center>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ARIMA_Forecast</th>
+      <th>ARIMA_Lower</th>
+      <th>ARIMA_Upper</th>
+      <th>LSTM_Forecast</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2025-05-17</th>
+      <td>1.002173</td>
+      <td>0.961874</td>
+      <td>1.044160</td>
+      <td>96529.625000</td>
+    </tr>
+    <tr>
+      <th>2025-05-18</th>
+      <td>1.010546</td>
+      <td>0.961621</td>
+      <td>1.061960</td>
+      <td>96555.585938</td>
+    </tr>
+    <tr>
+      <th>2025-05-19</th>
+      <td>1.007318</td>
+      <td>0.955600</td>
+      <td>1.061835</td>
+      <td>96295.976562</td>
+    </tr>
+  </tbody>
+</table>
+</center></p>
+<br><br>
