@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f5f7f8">
+	<meta name="description" content="Monitor temperatures across your spaces with clear, real-time insights and helpful alerts.">
+	<title>Thermo — Temperature monitoring, made simple</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #18313b;
+			--muted: #687b82;
+			--green: #177b67;
+			--green-dark: #116451;
+			--mint: #dff2eb;
+			--line: #e5eceb;
+			--paper: #ffffff;
+			--bg: #f5f7f6;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--ink);
+			font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+			line-height: 1.5;
+		}
+		a { color: inherit; text-decoration: none; }
+		.shell { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+		.topbar { padding: 22px 0; }
+		.nav { display: flex; align-items: center; justify-content: space-between; }
+		.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 750; letter-spacing: -.04em; }
+		.brand-mark {
+			display: grid; width: 34px; height: 34px; place-items: center;
+			border-radius: 11px; background: var(--green); color: #fff;
+		}
+		.brand-mark svg { width: 19px; height: 19px; }
+		.nav-links { display: flex; align-items: center; gap: 34px; color: #50656b; font-size: 14px; font-weight: 550; }
+		.nav-links a:hover, .text-link:hover { color: var(--green); }
+		.button {
+			display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px;
+			padding: 0 20px; border: 1px solid transparent; border-radius: 9px;
+			background: var(--green); color: #fff; font-size: 14px; font-weight: 650;
+			transition: background .2s ease, transform .2s ease;
+		}
+		.button:hover { background: var(--green-dark); transform: translateY(-1px); }
+		.button svg { width: 16px; height: 16px; }
+		.button-outline { border-color: #d9e3e1; background: transparent; color: var(--ink); }
+		.button-outline:hover { background: white; color: var(--ink); }
+
+		.hero { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 70px; padding: 78px 0 94px; }
+		.eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--green); font-size: 12px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+		.eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #48ae8b; box-shadow: 0 0 0 4px #e1f3ec; }
+		h1 { max-width: 590px; margin: 19px 0 20px; font-size: clamp(44px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -.065em; font-weight: 720; }
+		h1 span { color: var(--green); }
+		.hero-copy { max-width: 490px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.75; }
+		.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+		.trust { display: flex; align-items: center; gap: 11px; margin-top: 28px; color: #74858a; font-size: 12px; }
+		.avatars { display: flex; padding-left: 5px; }
+		.avatar { display: grid; width: 27px; height: 27px; margin-left: -5px; place-items: center; border: 2px solid var(--bg); border-radius: 50%; background: #d6e9e2; color: #245d4e; font-size: 9px; font-weight: 750; }
+		.avatar:nth-child(2) { background: #f0dfca; color: #8c6340; }
+		.avatar:nth-child(3) { background: #d9e1f1; color: #51678c; }
+		.trust strong { color: #425a60; }
+
+		.preview-wrap { position: relative; padding: 15px 0 15px 15px; }
+		.preview-wrap::before { position: absolute; z-index: -1; inset: 0 18px 24px 0; border-radius: 30px; background: #e9f2ee; content: ""; transform: rotate(-4deg); }
+		.dashboard { overflow: hidden; border: 1px solid #e8eeec; border-radius: 16px; background: var(--paper); box-shadow: 0 24px 70px #214a3b16, 0 3px 12px #1e3b3210; }
+		.dash-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; border-bottom: 1px solid #edf1f0; }
+		.dash-title { font-size: 13px; font-weight: 700; }
+		.dash-subtitle { margin-top: 3px; color: #87969a; font-size: 10px; }
+		.live { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border-radius: 20px; background: #edf8f3; color: #238364; font-size: 10px; font-weight: 700; }
+		.live::before { width: 6px; height: 6px; border-radius: 50%; background: #42ac7d; content: ""; }
+		.dash-body { padding: 20px 22px 22px; }
+		.metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+		.metric { padding: 15px; border: 1px solid #edf1f0; border-radius: 10px; }
+		.metric-label { color: #75868a; font-size: 10px; }
+		.metric-value { margin-top: 5px; font-size: 25px; font-weight: 720; letter-spacing: -.05em; }
+		.metric-value small { color: #829196; font-size: 12px; font-weight: 500; letter-spacing: 0; }
+		.metric-note { margin-top: 3px; color: #389170; font-size: 9px; }
+		.chart-head { display: flex; align-items: center; justify-content: space-between; margin: 23px 0 7px; }
+		.chart-head strong { font-size: 11px; }
+		.chart-head span { color: #87969a; font-size: 9px; }
+		.chart { width: 100%; height: 133px; overflow: visible; }
+		.chart-labels { display: flex; justify-content: space-between; color: #9aa7aa; font-size: 9px; }
+		.sensor-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+		.sensor { display: flex; align-items: center; gap: 9px; padding: 10px; border-radius: 9px; background: #f8faf9; }
+		.sensor-icon { display: grid; width: 29px; height: 29px; flex: 0 0 auto; place-items: center; border-radius: 8px; background: #e5f3ed; color: var(--green); font-size: 13px; }
+		.sensor-name { font-size: 9px; font-weight: 650; }
+		.sensor-state { margin-top: 2px; color: #8b999c; font-size: 8px; }
+		.sensor-temp { margin-left: auto; font-size: 10px; font-weight: 700; }
+
+		.proof { padding: 24px 0 26px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+		.proof-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+		.proof-label { color: #849398; font-size: 11px; }
+		.proof-items { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 35px; color: #5f7277; font-size: 13px; font-weight: 680; letter-spacing: -.02em; }
+		.proof-items span { display: inline-flex; align-items: center; gap: 8px; }
+		.proof-items i { color: #77a895; font-style: normal; font-size: 16px; }
+
+		.features { padding: 88px 0 96px; }
+		.section-heading { max-width: 580px; margin: 0 auto 42px; text-align: center; }
+		.section-heading h2 { margin: 12px 0 11px; font-size: clamp(30px, 4vw, 42px); line-height: 1.12; letter-spacing: -.055em; }
+		.section-heading p { margin: 0; color: var(--muted); font-size: 15px; }
+		.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+		.feature-card { padding: 25px 24px 27px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+		.feature-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 11px; background: #e8f5ef; color: var(--green); }
+		.feature-icon svg { width: 20px; height: 20px; }
+		.feature-card h3 { margin: 18px 0 8px; font-size: 16px; letter-spacing: -.025em; }
+		.feature-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+		.bottom-cta { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin-bottom: 45px; padding: 30px 34px; border-radius: 14px; background: #e8f3ee; }
+		.bottom-cta h2 { margin: 0 0 5px; font-size: 21px; letter-spacing: -.04em; }
+		.bottom-cta p { margin: 0; color: #617770; font-size: 13px; }
+		footer { padding: 20px 0 28px; border-top: 1px solid var(--line); color: #829196; font-size: 11px; }
+		.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+		.footer-brand { color: #40575c; font-weight: 700; }
+
+		@media (max-width: 800px) {
+			.hero { grid-template-columns: 1fr; gap: 48px; padding: 58px 0 70px; }
+			.hero-copy { max-width: 580px; }
+			.preview-wrap { width: min(520px, 100%); margin: 0 auto; }
+			.proof-inner { align-items: flex-start; flex-direction: column; }
+			.proof-items { justify-content: flex-start; gap: 18px 27px; }
+			.features { padding: 70px 0; }
+		}
+		@media (max-width: 560px) {
+			.shell { width: min(100% - 36px, 440px); }
+			.topbar { padding: 16px 0; }
+			.nav-links { gap: 15px; }
+			.nav-links a:not(.button) { display: none; }
+			.nav-links .button { min-height: 40px; padding: 0 13px; font-size: 12px; }
+			.hero { padding: 49px 0 58px; gap: 38px; }
+			h1 { font-size: clamp(43px, 12vw, 58px); }
+			.hero-copy { font-size: 15px; }
+			.hero-actions { gap: 9px; }
+			.hero-actions .button { padding: 0 15px; font-size: 12px; }
+			.trust { font-size: 11px; }
+			.dash-head { padding: 16px; }
+			.dash-body { padding: 16px; }
+			.metric { padding: 12px; }
+			.metric-value { font-size: 22px; }
+			.chart { height: 112px; }
+			.sensor-list { gap: 7px; }
+			.sensor { gap: 6px; padding: 8px 6px; }
+			.sensor-icon { width: 25px; height: 25px; }
+			.feature-grid { grid-template-columns: 1fr; }
+			.feature-card { padding: 21px; }
+			.section-heading { margin-bottom: 29px; }
+			.bottom-cta { align-items: flex-start; flex-direction: column; padding: 24px; }
+			.footer-inner { align-items: flex-start; flex-direction: column; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			*, *::before, *::after { transition-duration: .01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<header class="topbar">
+		<div class="shell nav">
+			<a class="brand" href="#home" aria-label="Thermo home">
+				<span class="brand-mark" aria-hidden="true">
+					<svg viewBox="0 0 24 24" fill="none"><path d="M10 14.8V5a2 2 0 1 1 4 0v9.8a4 4 0 1 1-4 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 11v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+				</span>
+				Thermo
+			</a>
+			<nav class="nav-links" aria-label="Main navigation">
+				<a href="#features">Features</a>
+				<a href="#how-it-works">How it works</a>
+				<a class="button" href="mailto:hello@thermo.example">Get started <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="home">
+		<section class="shell hero" aria-labelledby="hero-title">
+			<div>
+				<div class="eyebrow"><span class="eyebrow-dot"></span> A clearer view of every degree</div>
+				<h1 id="hero-title">Stay ahead of <span>every temperature.</span></h1>
+				<p class="hero-copy">Keep the spaces that matter in their comfort zone. Thermo brings your temperature data together, so you can spot changes early and feel confident from anywhere.</p>
+				<div class="hero-actions">
+					<a class="button" href="mailto:hello@thermo.example">Explore Thermo <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+					<a class="button button-outline" href="#features">See how it works</a>
+				</div>
+				<div class="trust">
+					<div class="avatars" aria-hidden="true"><span class="avatar">JM</span><span class="avatar">AL</span><span class="avatar">RK</span></div>
+					<span>Helping teams keep <strong>comfort on track</strong></span>
+				</div>
+			</div>
+
+			<div class="preview-wrap" id="how-it-works" aria-label="Example temperature monitoring dashboard">
+				<div class="dashboard">
+					<div class="dash-head">
+						<div><div class="dash-title">Temperature overview</div><div class="dash-subtitle">All locations · Updated just now</div></div>
+						<span class="live">Live monitoring</span>
+					</div>
+					<div class="dash-body">
+						<div class="metric-row">
+							<div class="metric"><div class="metric-label">Average temperature</div><div class="metric-value">21.4<small>°C</small></div><div class="metric-note">↗ Within your target range</div></div>
+							<div class="metric"><div class="metric-label">Sensors online</div><div class="metric-value">12<small> / 12</small></div><div class="metric-note">All systems reporting</div></div>
+						</div>
+						<div class="chart-head"><strong>Temperature trend</strong><span>Last 24 hours&nbsp;⌄</span></div>
+						<svg class="chart" viewBox="0 0 440 140" preserveAspectRatio="none" role="img" aria-label="Stable temperature trend over the last 24 hours">
+							<defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#46a985" stop-opacity=".2"/><stop offset="1" stop-color="#46a985" stop-opacity="0"/></linearGradient></defs>
+							<path d="M0 108H440M0 72H440M0 36H440" stroke="#edf1f0" stroke-width="1"/>
+							<path d="M0 87 C20 85 23 69 42 73 S67 92 88 81 S110 57 131 65 S156 78 176 66 S200 55 220 61 S245 78 264 68 S286 44 307 53 S329 76 350 67 S374 48 395 55 S422 61 440 43 L440 140H0Z" fill="url(#area)"/>
+							<path d="M0 87 C20 85 23 69 42 73 S67 92 88 81 S110 57 131 65 S156 78 176 66 S200 55 220 61 S245 78 264 68 S286 44 307 53 S329 76 350 67 S374 48 395 55 S422 61 440 43" fill="none" stroke="#329476" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+							<circle cx="440" cy="43" r="4" fill="#fff" stroke="#329476" stroke-width="2" vector-effect="non-scaling-stroke"/>
+						</svg>
+						<div class="chart-labels"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>Now</span></div>
+						<div class="sensor-list">
+							<div class="sensor"><span class="sensor-icon" aria-hidden="true">⌂</span><span><div class="sensor-name">Main office</div><div class="sensor-state">In range</div></span><span class="sensor-temp">21.8°</span></div>
+							<div class="sensor"><span class="sensor-icon" aria-hidden="true">▤</span><span><div class="sensor-name">Storage room</div><div class="sensor-state">In range</div></span><span class="sensor-temp">20.6°</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="proof" aria-label="Designed for different spaces">
+			<div class="shell proof-inner">
+				<div class="proof-label">One simple view for every environment</div>
+				<div class="proof-items"><span><i aria-hidden="true">✳</i> Workspaces</span><span><i aria-hidden="true">⌂</i> Homes</span><span><i aria-hidden="true">▦</i> Facilities</span><span><i aria-hidden="true">◉</i> Cold storage</span></div>
+			</div>
+		</section>
+
+		<section class="shell features" id="features" aria-labelledby="features-title">
+			<div class="section-heading">
+				<div class="eyebrow"><span class="eyebrow-dot"></span> Everything in range</div>
+				<h2 id="features-title">Less guesswork. More peace of mind.</h2>
+				<p>Simple tools that help you understand what's happening and know when it needs your attention.</p>
+			</div>
+			<div class="feature-grid">
+				<article class="feature-card">
+					<div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17.5 9 12l3.5 3.5L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+					<h3>See the full picture</h3>
+					<p>View readings from all your monitored spaces in one clear, easy-to-read dashboard.</p>
+				</article>
+				<article class="feature-card">
+					<div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+					<h3>Know when it changes</h3>
+					<p>Set your preferred temperature ranges and get notified when a reading falls outside them.</p>
+				</article>
+				<article class="feature-card">
+					<div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h17M7 15l4-4 3 2 6-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+					<h3>Understand the trends</h3>
+					<p>Explore temperature history to spot patterns, compare spaces, and make informed decisions.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="shell bottom-cta" aria-label="Get started">
+			<div><h2>Make every degree count.</h2><p>Get a clearer view of your environment with Thermo.</p></div>
+			<a class="button" href="mailto:hello@thermo.example">Get in touch <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+		</section>
+	</main>
+
+	<footer><div class="shell footer-inner"><a class="footer-brand" href="#home">Thermo</a><span>Temperature monitoring, made simple.</span><span>© <?php echo date('Y'); ?> Thermo</span></div></footer>
+</body>
+</html>
